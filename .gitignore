@@ -18,6 +18,7 @@
 *.zip
 *.tar.gz
 *.rar
+target/
 # Idea project files and folders
 *.iml
 .idea/
