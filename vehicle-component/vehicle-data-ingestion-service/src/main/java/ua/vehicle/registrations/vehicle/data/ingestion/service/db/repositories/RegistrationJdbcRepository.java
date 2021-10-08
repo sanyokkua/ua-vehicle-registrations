@@ -6,24 +6,25 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import ua.vehicle.registrations.vehicle.data.ingestion.service.db.entities.Registration;
+import ua.vehicle.registrations.vehicle.data.ingestion.service.db.repositories.customs.CustomInsertRepository;
 
 import java.time.LocalDate;
 
 @Repository
-public interface RegistrationJdbcRepository extends CrudRepository<Registration, Long> {
+public interface RegistrationJdbcRepository extends CrudRepository<Registration, Long>, CustomInsertRepository<Registration> {
 
     @Cacheable(cacheNames = "registration", unless = "#result == false ", key = "#aLong.hashCode()")
     @Override
     boolean existsById(Long aLong);
 
-    @Query("select * from ua_vehicle_registrations.registration r where "
-            + "r.dep_code = :dep_code and "
-            + "r.person_reg_address like :person_reg_address and "
-            + "r.oper_code = :op_code and "
-            + "r.vehicle_id = :vehicle_id and "
-            + "r.reg_date = :reg_date and "
-            + "r.person_type like :person_type and "
-            + "r.reg_number like :reg_number "
+    @Query("SELECT * FROM "registration" "r" WHERE "
+            + ""r"."vehicle_id" = :vehicle_id AND "
+            + ""r"."op_code" = :op_code AND "
+            + ""r"."dep_code" = :dep_code AND "
+            + ""r"."person_reg_address" LIKE :person_reg_address AND "
+            + ""r"."reg_date" = :reg_date AND "
+            + ""r"."person_type" LIKE :person_type AND "
+            + ""r"."reg_number" LIKE :reg_number "
     )
     Registration findByFields(@Param("dep_code") Long depCode,
                               @Param("person_reg_address") String personRegAddress,

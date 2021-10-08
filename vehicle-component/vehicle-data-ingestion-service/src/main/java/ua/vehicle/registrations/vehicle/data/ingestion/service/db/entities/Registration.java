@@ -1,5 +1,7 @@
 package ua.vehicle.registrations.vehicle.data.ingestion.service.db.entities;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
@@ -9,8 +11,10 @@ import org.springframework.data.relational.core.mapping.Table;
 import java.time.LocalDate;
 
 @Data
+@Builder
 @NoArgsConstructor
-@Table("ua_vehicle_registrations.registration")
+@AllArgsConstructor
+@Table("registration")
 public class Registration {
 
     @Id
