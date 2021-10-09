@@ -10,6 +10,8 @@ import ua.vehicle.registrations.vehicle.data.ingestion.service.services.tasks.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.Path;
+import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,31 +33,34 @@ public class MainController {
             var url = new URL("https://data.gov.ua/dataset/06779371-308f-42d7-895e-5a39833375f0/datapackage");
             updateRegistrationRecords(url);
         } catch (MalformedURLException e) {
-            e.printStackTrace();
+            log.warn("Problem with URL creating", e);
         }
     }
 
 
     public void updateRegistrationRecords(URL dataPassportJsonUrl) {
         var downloadedPassportFilePath = downloadFileTask.process(dataPassportJsonUrl);
-        log.debug("downloadedPassportFilePath -> {}", downloadedPassportFilePath.orElse(null));
+        log.info("downloadedPassportFilePath -> {}", downloadedPassportFilePath.orElse(null));
         var parsedDataArchiveURLs = parseJsonPassportTask.process(downloadedPassportFilePath);
-        log.debug("parsedDataArchiveURLs -> {}", parsedDataArchiveURLs);
+        log.info("parsedDataArchiveURLs -> {}", parsedDataArchiveURLs);
 
         parsedDataArchiveURLs.forEach(archiveUrl -> {
             var downloadedArchivePath = downloadFileTask.process(archiveUrl);
-            log.debug("downloadedArchivePath -> {}", downloadedArchivePath.orElse(null));
+            log.info("downloadedArchivePath -> {}", downloadedArchivePath.orElse(null));
             var extractedCsvFilePath = unzipFileTask.process(downloadedArchivePath);
-            log.debug("extractedCsvFilePath -> {}", extractedCsvFilePath.orElse(null));
+            log.info("extractedCsvFilePath -> {}", extractedCsvFilePath.orElse(null));
             var csvFile = readCsvFileTask.process(extractedCsvFilePath);
-            log.debug("csvFile -> {}", csvFile);
+            log.info("csvFile -> {}", csvFile);
 
+            LocalTime timeBefore = LocalTime.now();
             persistRecordsTask.process(csvFile);
+            LocalTime timeAfter = LocalTime.now();
+            log.info("Start time: {}, End time: {}, diff: {}", timeBefore, timeAfter, ChronoUnit.SECONDS.between(timeBefore, timeAfter));
 
             var filesToBeDeleted = new ArrayList<Path>();
             extractedCsvFilePath.ifPresent(filesToBeDeleted::add);
             downloadedArchivePath.ifPresent(filesToBeDeleted::add);
-            log.debug("Files to be deleted -> {}", filesToBeDeleted);
+            log.info("Files to be deleted -> {}", filesToBeDeleted);
             deleteFilesTask.process(filesToBeDeleted);
         });
 

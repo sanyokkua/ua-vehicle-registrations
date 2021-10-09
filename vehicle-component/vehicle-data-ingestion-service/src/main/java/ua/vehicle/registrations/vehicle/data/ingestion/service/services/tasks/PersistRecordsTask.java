@@ -20,11 +20,11 @@ public class PersistRecordsTask implements Task<Stream<CSVRecord>, Void> {
 
     @Override
     public Void process(Stream<CSVRecord> input) {
-        input
-                .map(csvUtilsService::mapCsvRecordToVehicleRegistrationRecord)
-                .filter(Optional::isPresent)
-                .map(Optional::get)
-                .forEach(generalCsvRegistrationRecordHandler::handleMessage);
+        input.parallel()
+             .map(csvUtilsService::mapCsvRecordToVehicleRegistrationRecord)
+             .filter(Optional::isPresent)
+             .map(Optional::get)
+             .forEach(generalCsvRegistrationRecordHandler::handleMessage);
         return null;
     }
 }

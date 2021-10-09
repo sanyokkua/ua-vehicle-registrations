@@ -1,6 +1,7 @@
 package ua.vehicle.registrations.vehicle.data.ingestion.service.handlers;
 
 import lombok.RequiredArgsConstructor;
+import lombok.Synchronized;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import ua.vehicle.registrations.vehicle.data.ingestion.service.config.QueuesConfig;
@@ -12,6 +13,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicLong;
 
 @Slf4j
 @Component
@@ -29,9 +31,12 @@ public class GeneralCsvRegistrationRecordHandler {
     private final RegistrationHandler registrationHandler;
     private final VehicleHandler vehicleHandler;
     private final QueueSenderService queueSenderService;
+    private final AtomicLong counter = new AtomicLong();
     private List<Handler<CsvVehicleRegistrationRecordDto>> basicHandlers;
 
+    @Synchronized
     public void handleMessage(CsvVehicleRegistrationRecordDto message) {
+        counter.incrementAndGet();
         if (Objects.isNull(basicHandlers) || basicHandlers.isEmpty()) {
             basicHandlers = new LinkedList<>();
             basicHandlers.addAll(Arrays.asList(
@@ -55,6 +60,10 @@ public class GeneralCsvRegistrationRecordHandler {
         } catch (Exception ex) {
             log.warn("Sending message to DLQ");
             queueSenderService.sendMessage(message, QueuesConfig.DLQ_EXCHANGE, QueuesConfig.DLQ_TOPIC);
+        }
+        long currentCounter = counter.get();
+        if (currentCounter % 5000 == 0) {
+            log.info("Processed another 5000 messages. Current counter = {}", currentCounter);
         }
     }
 }

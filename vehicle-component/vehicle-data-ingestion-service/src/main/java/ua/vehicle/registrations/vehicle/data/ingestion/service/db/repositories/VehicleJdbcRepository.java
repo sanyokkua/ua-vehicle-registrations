@@ -15,16 +15,16 @@ public interface VehicleJdbcRepository extends CrudRepository<Vehicle, Long>, Cu
     @Override
     boolean existsById(Long aLong);
 
-    @Query("SELECT * FROM "vehicle" "v" WHERE "
-            + ""v"."brand_name" LIKE :brand AND "
-            + ""v"."model_name" LIKE :model AND "
-            + ""v"."body_type" LIKE :body AND "
-            + ""v"."kind_name" LIKE :kind AND "
-            + ""v"."fuel_type" LIKE :fuel AND "
-            + ""v"."engine_capacity" = :engine_capacity AND "
-            + ""v"."make_year" = :make_year AND "
-            + ""v"."own_weight" = :own_weight AND "
-            + ""v"."total_weight" = :total_weight "
+    @Query("SELECT * FROM vehicle v WHERE "
+            + "v.brand_name LIKE :brand AND "
+            + "v.model_name LIKE :model AND "
+            + "v.body_type LIKE :body AND "
+            + "v.kind_name LIKE :kind AND "
+            + "v.fuel_type LIKE :fuel AND "
+            + "v.engine_capacity = :engine_capacity AND "
+            + "v.make_year = :make_year AND "
+            + "v.own_weight = :own_weight AND "
+            + "v.total_weight = :total_weight"
     )
     Vehicle findByFields(@Param("brand") String brand,
                          @Param("model") String model,
@@ -40,13 +40,13 @@ public interface VehicleJdbcRepository extends CrudRepository<Vehicle, Long>, Cu
     @Cacheable(cacheNames = "findVehicle", unless = "#result == null", key = "#vehicle.hashCode()")
     default Vehicle findVehicle(Vehicle vehicle) {
         return findByFields(vehicle.getBrandName(),
-                vehicle.getModelName(),
-                vehicle.getBodyType(),
-                vehicle.getKindName(),
-                vehicle.getFuelType(),
-                vehicle.getEngineCapacity(),
-                vehicle.getMakeYear(),
-                vehicle.getOwnWeight(),
-                vehicle.getTotalWeight());
+                            vehicle.getModelName(),
+                            vehicle.getBodyType(),
+                            vehicle.getKindName(),
+                            vehicle.getFuelType(),
+                            vehicle.getEngineCapacity(),
+                            vehicle.getMakeYear(),
+                            vehicle.getOwnWeight(),
+                            vehicle.getTotalWeight());
     }
 }

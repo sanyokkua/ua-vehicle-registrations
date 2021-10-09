@@ -14,5 +14,6 @@ public class DlqMessageListenerListener implements OnMessageListener<CsvVehicleR
     @Override
     public void onMessage(CsvVehicleRegistrationRecordDto message) {
         generalCsvRegistrationRecordHandler.handleMessage(message);
+        log.warn("Message from DLQ {}", message);
     }
 }
