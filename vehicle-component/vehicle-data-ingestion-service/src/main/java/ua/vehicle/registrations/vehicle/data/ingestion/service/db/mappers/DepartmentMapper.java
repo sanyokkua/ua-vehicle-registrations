@@ -13,5 +13,4 @@ public interface DepartmentMapper extends BaseCsvVehicleRegistrationRecordMapper
     @Mapping(source = "depName", target = "depName")
     @Override
     Department map(CsvVehicleRegistrationRecordDto source);
-
 }

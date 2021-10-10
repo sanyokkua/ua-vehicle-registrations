@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class QueuesConfig {
+
     public static final String DLQ = "dead-letter-queue";
     public static final String DLQ_EXCHANGE = "dead-letter-queue-exchange";
     public static final String DLQ_TOPIC = "dead.letter.queue.topic.#";
@@ -32,24 +33,4 @@ public class QueuesConfig {
                 .to(exchange)
                 .with(DLQ_TOPIC);
     }
-
-//    Message listener functionality disabled in order to implement handling messages from DLQ later as an additional functionality
-//
-//    @Bean("registrationListenerAdapter")
-//    public MessageListenerAdapter listenerAdapter(RegistrationReceiver receiver) {
-//        return new MessageListenerAdapter(receiver, "process");
-//    }
-//    @Bean("registrationContainer")
-//    public SimpleMessageListenerContainer container(ConnectionFactory connectionFactory, @Qualifier("registrationListenerAdapter") MessageListenerAdapter listenerAdapter) {
-//        SimpleMessageListenerContainer container = new SimpleMessageListenerContainer();
-//        container.setConnectionFactory(connectionFactory);
-//        container.setQueueNames(DLQ);
-//        container.setMessageListener(listenerAdapter);
-//        return container;
-//    }
-//    @Bean
-//    public OnMessageListener<CsvVehicleRegistrationRecordDto> onCsvVehicleRegistrationRecordMessageListener(GeneralCsvRegistrationRecordHandler generalCsvRegistrationRecordHandler) {
-//        return new DlqMessageListenerListener(generalCsvRegistrationRecordHandler);
-//    }
-
 }

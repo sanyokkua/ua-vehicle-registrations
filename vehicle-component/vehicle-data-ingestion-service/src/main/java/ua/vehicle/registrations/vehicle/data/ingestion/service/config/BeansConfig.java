@@ -11,5 +11,4 @@ public class BeansConfig {
     public Gson gson() {
         return new Gson();
     }
-
 }

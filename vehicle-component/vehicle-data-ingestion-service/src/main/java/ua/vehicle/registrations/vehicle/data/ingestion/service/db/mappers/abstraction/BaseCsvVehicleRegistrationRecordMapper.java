@@ -7,6 +7,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
 public interface BaseCsvVehicleRegistrationRecordMapper<O> extends InputMapper<CsvVehicleRegistrationRecordDto, O> {
+
     default LocalDate dateFromString(String input) {
         var formatter = DateTimeFormatter.ofPattern("[yyyy-MM-dd][dd.MM.yyyy]");
         try {

@@ -17,6 +17,7 @@ import java.util.stream.Stream;
 @Slf4j
 @Service
 public class FileUtilsService {
+
     private static final String SYSTEM_TMP_FOLDER_PROPERTY = "java.io.tmpdir";
     private static final String APP_TMP_FOLDER = "vehicle_tmp";
 
@@ -26,7 +27,6 @@ public class FileUtilsService {
         if (Files.exists(tmpFolderPath) && Files.isDirectory(tmpFolderPath)) {
             return Optional.of(tmpFolderPath);
         }
-
         var createdFolder = createFolder(tmpFolderPath);
         if (createdFolder.isEmpty()) {
             log.warn("getTempDirectory: Was the problem with creating temp directory, trying to create in the app directory");
@@ -62,13 +62,11 @@ public class FileUtilsService {
             log.warn("Temp directory is not assigned. Extraction will not be executed");
             return Optional.empty();
         }
-
         if (Objects.nonNull(filePath)) {
             var inputFilePath = filePath.toString();
             var fileName = FilenameUtils.getBaseName(inputFilePath);
             var outputDirectory = tempDirectory.get().toAbsolutePath();
             var destination = Paths.get(outputDirectory.toString(), fileName);
-
             try (var zipFile = new ZipFile(filePath.toFile())) {
                 zipFile.extractAll(destination.toAbsolutePath().toString());
                 try (Stream<Path> list = Files.list(destination)) {

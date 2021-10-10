@@ -23,6 +23,7 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class JsonUtilsService {
+
     private final Gson gson;
     private final FileUtilsService fileUtilsService;
 
@@ -31,11 +32,9 @@ public class JsonUtilsService {
             return Collections.emptyList();
         }
         var jsonText = getTextFromFile(input);
-
         if (jsonText.isEmpty()) {
             return Collections.emptyList();
         }
-
         return parseJson(jsonText.get());
     }
 

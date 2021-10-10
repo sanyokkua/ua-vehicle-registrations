@@ -26,6 +26,7 @@ import java.util.stream.Stream;
 @Service
 @RequiredArgsConstructor
 public class CsvUtilsService {
+
     protected final Gson gson;
     protected final FileUtilsService fileUtilsService;
 
@@ -42,7 +43,6 @@ public class CsvUtilsService {
         } catch (IOException e) {
             log.warn("CSV file {} can't be processed, error - {}", input, e);
         }
-
         return Stream.empty();
     }
 
@@ -73,7 +73,6 @@ public class CsvUtilsService {
                 var normalizedValue = normalize(key, value);
                 normalizedRecordMap.put(key.toUpperCase(), normalizedValue);
             });
-
             var finalizedRecordMap = fixSources(normalizedRecordMap);
             var json = gson.toJson(finalizedRecordMap);
             return Optional.ofNullable(gson.fromJson(json, CsvVehicleRegistrationRecordDto.class));
@@ -138,11 +137,9 @@ public class CsvUtilsService {
         var opName = fixDuplication(csvRecordMap.get("OPER_NAME"), csvRecordMap.getOrDefault("OPER_CODE", ""));
         var brand = fixDuplication(csvRecordMap.get("BRAND"), csvRecordMap.getOrDefault("MODEL", ""));
         var depName = fixDuplication(csvRecordMap.get("DEP"), csvRecordMap.getOrDefault("DEP_CODE", ""));
-
         finalizedRecordMap.put("OPER_NAME", opName);
         finalizedRecordMap.put("BRAND", brand);
         finalizedRecordMap.put("DEP", depName);
-
         return finalizedRecordMap;
     }
 

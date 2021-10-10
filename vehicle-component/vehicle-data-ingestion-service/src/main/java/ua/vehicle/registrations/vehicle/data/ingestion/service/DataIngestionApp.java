@@ -11,5 +11,4 @@ public class DataIngestionApp {
     public static void main(String[] args) {
         SpringApplication.run(DataIngestionApp.class, args);
     }
-
 }

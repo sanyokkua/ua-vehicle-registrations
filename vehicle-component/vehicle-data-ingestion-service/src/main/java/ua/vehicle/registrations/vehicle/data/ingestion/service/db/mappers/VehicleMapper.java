@@ -8,6 +8,7 @@ import ua.vehicle.registrations.vehicle.data.ingestion.service.dto.CsvVehicleReg
 
 @Mapper(componentModel = "spring")
 public interface VehicleMapper extends BaseCsvVehicleRegistrationRecordMapper<Vehicle> {
+
     @Mapping(source = "brandName", target = "brandName")
     @Mapping(source = "modelName", target = "modelName")
     @Mapping(source = "bodyType", target = "bodyType")

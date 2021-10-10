@@ -13,5 +13,4 @@ public interface OperationMapper extends BaseCsvVehicleRegistrationRecordMapper<
     @Mapping(source = "opName", target = "opName")
     @Override
     Operation map(CsvVehicleRegistrationRecordDto source);
-
 }

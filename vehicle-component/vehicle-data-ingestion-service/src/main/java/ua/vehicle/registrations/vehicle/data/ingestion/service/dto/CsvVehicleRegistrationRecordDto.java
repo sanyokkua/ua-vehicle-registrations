@@ -7,6 +7,7 @@ import lombok.Data;
 @Data
 @Builder
 public class CsvVehicleRegistrationRecordDto {
+
     @SerializedName(value = "PERSON", alternate = {"person"})
     private String personType;
     @SerializedName(value = "OPER_CODE", alternate = {"oper_code"})
