@@ -23,4 +23,15 @@ public class Registration {
     private String colorName;
     private long opCode;
     private long depCode;
+    //Optional. Required for better SQL
+    private String brandName;
+    private String modelName;
+    private String bodyType;
+    private String kindName;
+    private String fuelType;
+    private String purposeName;
+    private int engineCapacity;
+    private int makeYear;
+    private int ownWeight;
+    private int totalWeight;
 }

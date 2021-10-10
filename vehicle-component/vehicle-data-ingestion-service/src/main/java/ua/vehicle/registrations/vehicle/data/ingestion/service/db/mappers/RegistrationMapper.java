@@ -17,6 +17,16 @@ public interface RegistrationMapper extends BaseCsvVehicleRegistrationRecordMapp
     @Mapping(source = "colorName", target = "colorName")
     @Mapping(source = "opCode", target = "opCode")
     @Mapping(source = "depCode", target = "depCode")
+    @Mapping(source = "brandName", target = "brandName")
+    @Mapping(source = "modelName", target = "modelName")
+    @Mapping(source = "bodyType", target = "bodyType")
+    @Mapping(source = "kindName", target = "kindName")
+    @Mapping(source = "fuelType", target = "fuelType", defaultValue = "N/A")
+    @Mapping(source = "purposeName", target = "purposeName")
+    @Mapping(source = "engineCapacity", target = "engineCapacity", defaultValue = "0")
+    @Mapping(source = "makeYear", target = "makeYear")
+    @Mapping(source = "ownWeight", target = "ownWeight", defaultValue = "0")
+    @Mapping(source = "totalWeight", target = "totalWeight", defaultValue = "0")
     @Override
     Registration map(CsvVehicleRegistrationRecordDto source);
 }
