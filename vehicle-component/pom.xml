@@ -30,6 +30,7 @@
         <commons-lang3.version>3.12.0</commons-lang3.version>
         <mapstruct.version>1.4.2.Final</mapstruct.version>
         <spring-rabbit-test.version>2.3.10</spring-rabbit-test.version>
+        <springfox-boot-starter.version>3.0.0</springfox-boot-starter.version>
     </properties>
 
     <modules>
@@ -110,6 +111,11 @@
                 <groupId>org.mapstruct</groupId>
                 <artifactId>mapstruct</artifactId>
                 <version>${mapstruct.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-boot-starter</artifactId>
+                <version>${springfox-boot-starter.version}</version>
             </dependency>
 
 
