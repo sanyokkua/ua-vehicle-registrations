@@ -2,18 +2,15 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <parent>
-        <artifactId>vehicle-component</artifactId>
+        <artifactId>vehicle-component-parent</artifactId>
         <groupId>ua.vehicle.registrations</groupId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-
-    <artifactId>vehicle.service</artifactId>
-    <name>vehicle.service</name>
+    <artifactId>vehicle-service</artifactId>
+    <name>vehicle-service</name>
     <description>Vehicles Registrations API Service</description>
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -35,7 +32,6 @@
             <groupId>io.springfox</groupId>
             <artifactId>springfox-boot-starter</artifactId>
         </dependency>
-
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
@@ -50,5 +46,4 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
 </project>
