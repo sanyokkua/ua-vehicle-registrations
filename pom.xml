@@ -1,6 +1,7 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -8,12 +9,14 @@
         <relativePath/>
         <!-- lookup parent from repository -->
     </parent>
+
     <groupId>ua.vehicle.registrations</groupId>
     <artifactId>vehicle-registrations-common-project</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
     <name>vehicle-registrations-common-project</name>
     <description>Vehicle registrations APP</description>
+    <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
+
     <properties>
         <!-- Properties -->
         <java.version>11</java.version>
@@ -26,17 +29,17 @@
         <liquibase-core.version>4.5.0</liquibase-core.version>
         <mapstruct.version>1.4.2.Final</mapstruct.version>
         <spring-boot.version>2.5.5</spring-boot.version>
-        <spring-cloud.version>2020.0.4</spring-cloud.version>
+        <spring-cloud-starter-config.version>3.0.4</spring-cloud-starter-config.version>
         <spring-rabbit-test.version>2.3.10</spring-rabbit-test.version>
         <springfox-boot-starter.version>3.0.0</springfox-boot-starter.version>
         <zip4j.version>2.9.0</zip4j.version>
     </properties>
     <modules>
-        <module>vehicle-component</module>
-        <module>auth-component</module>
-        <module>liquibase-component</module>
-        <module>configuration-component</module>
-        <module>user-component</module>
+        <module>component-infrastructure</module>
+        <module>component-db-management</module>
+        <module>component-vehicle</module>
+        <module>component-user</module>
+        <module>component-authentication</module>
     </modules>
     <dependencyManagement>
         <dependencies>
@@ -149,19 +152,37 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-config</artifactId>
-                <version>${spring-boot.version}</version>
+                <version>${spring-cloud-starter-config.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-config-server</artifactId>
+                <version>${spring-cloud-starter-config.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-config-client</artifactId>
+                <version>${spring-cloud-starter-config.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-                <version>${spring-boot.version}</version>
+                <version>${spring-cloud-starter-config.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <type>pom</type>
-                <scope>import</scope>
-                <version>${spring-cloud.version}</version>
+                <artifactId>spring-cloud-starter-openfeign</artifactId>
+                <version>${spring-cloud-starter-config.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+                <version>${spring-cloud-starter-config.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-commons</artifactId>
+                <version>${spring-cloud-starter-config.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

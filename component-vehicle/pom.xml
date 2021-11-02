@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>vehicle-registrations-common-project</artifactId>
+        <groupId>ua.vehicle.registrations</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>component-vehicle-parent</artifactId>
+    <name>component-vehicle-parent</name>
+    <description>component-vehicle-parent</description>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>lib-vehicle-commons</module>
+        <module>vehicle-data-management-service</module>
+        <module>vehicle-data-request-repository-service</module>
+        <module>api-vehicle-data-service</module>
+    </modules>
+</project>
