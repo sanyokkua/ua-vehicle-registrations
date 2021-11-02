@@ -3,17 +3,17 @@ package ua.vehicle.registrations.vehicle.data.ingestion.service.processing.recor
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import ua.vehicle.registrations.vehicle.data.ingestion.service.db.entities.Operation;
 import ua.vehicle.registrations.vehicle.data.ingestion.service.db.mappers.abstraction.BaseCsvVehicleRegistrationRecordMapper;
 import ua.vehicle.registrations.vehicle.data.ingestion.service.db.repositories.abstraction.RawSqlRepository;
 import ua.vehicle.registrations.vehicle.data.ingestion.service.processing.recordhandlers.abstraction.RegistrationBaseHandler;
+import ua.vehicle.registrations.vehicle.service.dto.flat.OperationFlatDto;
 
 @Component
 @Slf4j
-public class OperationHandler extends RegistrationBaseHandler<Operation> {
+public class OperationHandler extends RegistrationBaseHandler<OperationFlatDto> {
 
     @Autowired
-    public OperationHandler(RawSqlRepository<Operation> repository, BaseCsvVehicleRegistrationRecordMapper<Operation> mapper) {
+    public OperationHandler(RawSqlRepository<OperationFlatDto> repository, BaseCsvVehicleRegistrationRecordMapper<OperationFlatDto> mapper) {
         super(repository, mapper);
     }
 }

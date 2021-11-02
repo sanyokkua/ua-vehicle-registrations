@@ -34,10 +34,10 @@ public class CsvUtilsService {
         var encoding = fileUtilsService.getEncoding(input);
         var delimiter = getDelimiter(input);
         CSVFormat csvFormat = CSVFormat.DEFAULT.builder()
-                                               .setDelimiter(delimiter)
-                                               .setHeader()
-                                               .setSkipHeaderRecord(true)
-                                               .build();
+                .setDelimiter(delimiter)
+                .setHeader()
+                .setSkipHeaderRecord(true)
+                .build();
         try {
             return CSVParser.parse(input, Charset.forName(encoding), csvFormat).stream();
         } catch (IOException e) {

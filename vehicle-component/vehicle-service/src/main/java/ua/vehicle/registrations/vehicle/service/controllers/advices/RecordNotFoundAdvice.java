@@ -5,15 +5,15 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import ua.vehicle.registrations.vehicle.service.erros.RecordNotFoundException;
+import ua.vehicle.registrations.vehicle.service.exceptions.RecordIsNotFoundException;
 
 @RestControllerAdvice
 public class RecordNotFoundAdvice {
 
     @ResponseBody
-    @ExceptionHandler(RecordNotFoundException.class)
+    @ExceptionHandler(RecordIsNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    public String employeeNotFoundHandler(RecordNotFoundException ex) {
+    public String employeeNotFoundHandler(RecordIsNotFoundException ex) {
         return ex.getMessage();
     }
 }

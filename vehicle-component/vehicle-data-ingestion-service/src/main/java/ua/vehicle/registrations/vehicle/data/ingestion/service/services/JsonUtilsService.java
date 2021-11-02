@@ -43,13 +43,13 @@ public class JsonUtilsService {
         return passportDto.isEmpty() ?
                 Collections.emptyList() :
                 passportDto.get()
-                           .getResources()
-                           .stream()
-                           .map(RegistrationPassportItemDto::getPath)
-                           .map(this::getUrl)
-                           .filter(Optional::isPresent)
-                           .map(Optional::get)
-                           .collect(Collectors.toList());
+                        .getResources()
+                        .stream()
+                        .map(RegistrationPassportItemDto::getPath)
+                        .map(this::getUrl)
+                        .filter(Optional::isPresent)
+                        .map(Optional::get)
+                        .collect(Collectors.toList());
     }
 
     private Optional<String> getTextFromFile(Path path) {

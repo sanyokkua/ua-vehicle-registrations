@@ -20,8 +20,8 @@ public class DeleteFilesTask implements Task<List<Path>, Void> {
     @Override
     public Void process(List<Path> filePaths) {
         filePaths.stream()
-                 .filter(Files::exists)
-                 .forEach(fileUtilsService::deleteFile);
+                .filter(Files::exists)
+                .forEach(fileUtilsService::deleteFile);
         return null;
     }
 }

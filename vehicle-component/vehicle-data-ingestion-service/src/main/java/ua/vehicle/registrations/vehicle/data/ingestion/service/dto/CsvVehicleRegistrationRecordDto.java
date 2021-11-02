@@ -25,7 +25,7 @@ public class CsvVehicleRegistrationRecordDto {
     @SerializedName(value = "MODEL", alternate = {"model"})
     private String modelName;
     @SerializedName(value = "MAKE_YEAR", alternate = {"make_year"})
-    private Integer makeYear;
+    private Long makeYear;
     @SerializedName(value = "COLOR", alternate = {"color"})
     private String colorName;
     @SerializedName(value = "KIND", alternate = {"kind"})
@@ -39,11 +39,11 @@ public class CsvVehicleRegistrationRecordDto {
     @SerializedName(value = "FUEL", alternate = {"fuel"})
     private String fuelType;// NULLABLE
     @SerializedName(value = "CAPACITY", alternate = {"capacity"})
-    private Integer engineCapacity;// NULLABLE
+    private Long engineCapacity;// NULLABLE
     @SerializedName(value = "OWN_WEIGHT", alternate = {"own_weight"})
-    private Integer ownWeight;// NULLABLE
+    private Long ownWeight;// NULLABLE
     @SerializedName(value = "TOTAL_WEIGHT", alternate = {"total_weight"})
-    private Integer totalWeight;// NULLABLE
+    private Long totalWeight;// NULLABLE
     @SerializedName(value = "N_REG_NEW", alternate = {"n_reg_new"})
     private String registrationNumber;// NULLABLE
     @SerializedName(value = "VIN", alternate = {"vin"})

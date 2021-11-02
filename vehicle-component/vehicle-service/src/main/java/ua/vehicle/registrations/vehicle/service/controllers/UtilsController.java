@@ -4,8 +4,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ua.vehicle.registrations.vehicle.service.dto.SearchParametersDto;
+import ua.vehicle.registrations.vehicle.service.dto.SearchEntityDto;
 import ua.vehicle.registrations.vehicle.service.services.UtilsService;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/utils")
@@ -15,7 +17,7 @@ public class UtilsController {
     private final UtilsService utilsService;
 
     @GetMapping("/searchParams")
-    public SearchParametersDto getSearchParams() {
+    public List<SearchEntityDto> getSearchParameters() {
         return utilsService.getSearchParameters();
     }
 }

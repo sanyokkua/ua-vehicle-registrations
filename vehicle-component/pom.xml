@@ -14,6 +14,7 @@
     <name>vehicle-component-parent</name>
     <description>Vehicle Service APP</description>
     <modules>
+        <module>vehicle-common-classes</module>
         <module>vehicle-service</module>
         <module>vehicle-management-repository</module>
         <module>vehicle-data-ingestion-service</module>

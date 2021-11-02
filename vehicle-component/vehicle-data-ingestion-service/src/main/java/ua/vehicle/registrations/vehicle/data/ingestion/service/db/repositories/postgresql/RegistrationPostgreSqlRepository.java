@@ -5,18 +5,18 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
-import ua.vehicle.registrations.vehicle.data.ingestion.service.db.entities.Registration;
 import ua.vehicle.registrations.vehicle.data.ingestion.service.db.repositories.abstraction.RawSqlRepository;
+import ua.vehicle.registrations.vehicle.service.dto.flat.RegistrationFlatDto;
 
 @Slf4j
 @Repository
 @RequiredArgsConstructor
-public class RegistrationPostgreSqlRepository implements RawSqlRepository<Registration> {
+public class RegistrationPostgreSqlRepository implements RawSqlRepository<RegistrationFlatDto> {
 
     private final NamedParameterJdbcTemplate jdbcTemplate;
 
     @Override
-    public void customInsert(Registration entity) {
+    public void customInsert(RegistrationFlatDto entity) {
         jdbcTemplate.update(
                 "INSERT INTO REGISTRATION (reg_id, vehicle_id, person_type, person_reg_address, reg_date, reg_number, vin_number, color_name, op_code, dep_code) " +
                         "VALUES (DEFAULT," +

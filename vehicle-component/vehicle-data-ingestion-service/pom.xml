@@ -13,6 +13,11 @@
     <description>Data Ingestion Service</description>
     <dependencies>
         <dependency>
+            <groupId>ua.vehicle.registrations</groupId>
+            <artifactId>vehicle-common-classes</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jdbc</artifactId>
         </dependency>

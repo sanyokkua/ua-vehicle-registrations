@@ -2,12 +2,12 @@ package ua.vehicle.registrations.vehicle.data.ingestion.service.db.mappers;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import ua.vehicle.registrations.vehicle.data.ingestion.service.db.entities.Registration;
 import ua.vehicle.registrations.vehicle.data.ingestion.service.db.mappers.abstraction.BaseCsvVehicleRegistrationRecordMapper;
 import ua.vehicle.registrations.vehicle.data.ingestion.service.dto.CsvVehicleRegistrationRecordDto;
+import ua.vehicle.registrations.vehicle.service.dto.flat.RegistrationFlatDto;
 
 @Mapper(componentModel = "spring")
-public interface RegistrationMapper extends BaseCsvVehicleRegistrationRecordMapper<Registration> {
+public interface RegistrationMapper extends BaseCsvVehicleRegistrationRecordMapper<RegistrationFlatDto> {
 
     @Mapping(source = "personType", target = "personType")
     @Mapping(source = "personRegistrationAddress", target = "personRegAddress", defaultValue = "N/A")
@@ -23,10 +23,10 @@ public interface RegistrationMapper extends BaseCsvVehicleRegistrationRecordMapp
     @Mapping(source = "kindName", target = "kindName")
     @Mapping(source = "fuelType", target = "fuelType", defaultValue = "N/A")
     @Mapping(source = "purposeName", target = "purposeName")
-    @Mapping(source = "engineCapacity", target = "engineCapacity", defaultValue = "0")
+    @Mapping(source = "engineCapacity", target = "engineCapacity", defaultValue = "0L")
     @Mapping(source = "makeYear", target = "makeYear")
-    @Mapping(source = "ownWeight", target = "ownWeight", defaultValue = "0")
-    @Mapping(source = "totalWeight", target = "totalWeight", defaultValue = "0")
+    @Mapping(source = "ownWeight", target = "ownWeight", defaultValue = "0L")
+    @Mapping(source = "totalWeight", target = "totalWeight", defaultValue = "0L")
     @Override
-    Registration map(CsvVehicleRegistrationRecordDto source);
+    RegistrationFlatDto map(CsvVehicleRegistrationRecordDto source);
 }
