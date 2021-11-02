@@ -1,0 +1,26 @@
+version: '2'
+
+services:
+  vehicle_info_db:
+    image: postgres
+    restart: always
+    ports:
+      - '5402:5432'
+    environment:
+      POSTGRES_DB: ua_vehicle_registrations_db
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: welcome
+    volumes:
+      - ./tmp/ua_vehicle_registrations_db:/var/lib/postgresql/data
+  rabbitmq:
+    image: rabbitmq:management
+    ports:
+      - '4369:4369'
+      - '5672:5672'
+      - '25672:25672'
+      - '15672:15672'
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: welcome
+    volumes:
+      - ./tmp/rabbit:/var/lib/rabbitmq
