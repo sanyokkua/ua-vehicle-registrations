@@ -1,5 +1,6 @@
 package ua.vehicle.registrations.vehicle.data.ingestion.service.db.mappers.abstraction;
 
+import ua.vehicle.registrations.mappers.InputMapper;
 import ua.vehicle.registrations.vehicle.data.ingestion.service.dto.CsvVehicleRegistrationRecordDto;
 
 import java.time.LocalDate;

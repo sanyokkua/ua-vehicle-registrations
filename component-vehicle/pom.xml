@@ -16,9 +16,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>lib-vehicle-commons</module>
         <module>vehicle-data-management-service</module>
         <module>vehicle-data-request-repository-service</module>
-        <module>api-vehicle-data-service</module>
     </modules>
 </project>

@@ -4,10 +4,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
-import ua.vehicle.registrations.vehicle.management.repository.repositories.RegistrationRepository;
+import ua.vehicle.registrations.vehicle.management.repository.db.repositories.RegistrationRepository;
 import ua.vehicle.registrations.vehicle.management.repository.utils.SpecificationUtils;
-import ua.vehicle.registrations.vehicle.service.dto.jpa.RegistrationEntity;
-import ua.vehicle.registrations.vehicle.service.dto.searchable.RegistrationSearchableDto;
+import ua.vehicle.registrations.vehicle.management.repository.db.jpa.RegistrationEntity;
+import ua.vehicle.registrations.dto.searchable.RegistrationSearchableDto;
 
 import java.util.List;
 import java.util.Optional;

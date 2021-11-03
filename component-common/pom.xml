@@ -1,0 +1,20 @@
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>vehicle-registrations-common-project</artifactId>
+        <groupId>ua.vehicle.registrations</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>component-common-parent</artifactId>
+    <name>component-common-parent</name>
+    <description>component-common-parent</description>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>commons-dto</module>
+    </modules>
+</project>

@@ -10,8 +10,8 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
 @Configuration
-@EntityScan("ua.vehicle.registrations.vehicle.service.dto.jpa")
-@EnableJpaRepositories("ua.vehicle.registrations.vehicle.management.repository.repositories")
+@EntityScan("ua.vehicle.registrations.vehicle.management.repository.db.jpa")
+@EnableJpaRepositories("ua.vehicle.registrations.vehicle.management.repository.db.repositories")
 public class AppConfig {
 
     @Bean

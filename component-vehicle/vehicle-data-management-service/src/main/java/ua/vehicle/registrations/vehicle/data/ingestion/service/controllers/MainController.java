@@ -11,8 +11,8 @@ import ua.vehicle.registrations.vehicle.data.ingestion.service.processing.MainFl
 import java.net.MalformedURLException;
 import java.net.URL;
 
-@Component
 @Slf4j
+@Component
 @RequiredArgsConstructor
 public class MainController {
 

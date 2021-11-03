@@ -17,7 +17,7 @@
     <dependencies>
         <dependency>
             <groupId>ua.vehicle.registrations</groupId>
-            <artifactId>lib-vehicle-commons</artifactId>
+            <artifactId>commons-dto</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>

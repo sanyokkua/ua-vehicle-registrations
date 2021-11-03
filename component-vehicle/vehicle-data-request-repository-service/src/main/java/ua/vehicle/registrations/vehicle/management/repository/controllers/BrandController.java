@@ -5,14 +5,14 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 import ua.vehicle.registrations.vehicle.management.repository.services.BrandService;
-import ua.vehicle.registrations.vehicle.service.api.BaseVehicleApiWithId;
-import ua.vehicle.registrations.vehicle.service.dto.jpa.BrandEntity;
-import ua.vehicle.registrations.vehicle.service.dto.searchable.BrandSearchableDto;
+import ua.vehicle.registrations.interfaces.BaseRegistrationApi;
+import ua.vehicle.registrations.vehicle.management.repository.db.jpa.BrandEntity;
+import ua.vehicle.registrations.dto.searchable.BrandSearchableDto;
 
 @RestController
 @RequestMapping("/api/v1/management/registrations")
 @RequiredArgsConstructor
-public class BrandController implements BaseVehicleApiWithId<BrandSearchableDto, BrandEntity, String> {
+public class BrandController implements BaseRegistrationApi<BrandSearchableDto, BrandEntity, String> {
 
     private final BrandService service;
 

@@ -5,11 +5,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
-import ua.vehicle.registrations.vehicle.management.repository.dbapi.BaseRepository;
+import ua.vehicle.registrations.dto.Field;
+import ua.vehicle.registrations.exceptions.RecordIsNotFoundException;
+import ua.vehicle.registrations.vehicle.management.repository.api.BaseRepository;
+import ua.vehicle.registrations.vehicle.management.repository.api.BaseVehicleServiceApi;
 import ua.vehicle.registrations.vehicle.management.repository.utils.SpecificationUtils;
-import ua.vehicle.registrations.vehicle.service.api.BaseVehicleServiceApi;
-import ua.vehicle.registrations.vehicle.service.api.Field;
-import ua.vehicle.registrations.vehicle.service.exceptions.RecordIsNotFoundException;
 
 import java.util.List;
 import java.util.Objects;

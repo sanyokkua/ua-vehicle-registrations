@@ -5,14 +5,14 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 import ua.vehicle.registrations.vehicle.management.repository.services.FuelService;
-import ua.vehicle.registrations.vehicle.service.api.BaseVehicleApiWithId;
-import ua.vehicle.registrations.vehicle.service.dto.jpa.FuelEntity;
-import ua.vehicle.registrations.vehicle.service.dto.searchable.FuelSearchableDto;
+import ua.vehicle.registrations.interfaces.BaseRegistrationApi;
+import ua.vehicle.registrations.vehicle.management.repository.db.jpa.FuelEntity;
+import ua.vehicle.registrations.dto.searchable.FuelSearchableDto;
 
 @RestController
 @RequestMapping("/api/v1/management/registrations")
 @RequiredArgsConstructor
-public class FuelController implements BaseVehicleApiWithId<FuelSearchableDto, FuelEntity, String> {
+public class FuelController implements BaseRegistrationApi<FuelSearchableDto, FuelEntity, String> {
 
     private final FuelService service;
 

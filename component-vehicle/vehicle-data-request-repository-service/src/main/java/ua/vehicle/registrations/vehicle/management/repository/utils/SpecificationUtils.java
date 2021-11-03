@@ -3,9 +3,10 @@ package ua.vehicle.registrations.vehicle.management.repository.utils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-import ua.vehicle.registrations.vehicle.service.api.CriteriaOperations;
-import ua.vehicle.registrations.vehicle.service.api.Field;
+import ua.vehicle.registrations.enums.CriteriaOperations;
+import ua.vehicle.registrations.dto.Field;
 
 import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Root;
@@ -14,7 +15,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 @Slf4j
-@Service
+@Component
 public class SpecificationUtils<I> {
 
     private <T> boolean isValidParams(Field<T> value, String... path) {

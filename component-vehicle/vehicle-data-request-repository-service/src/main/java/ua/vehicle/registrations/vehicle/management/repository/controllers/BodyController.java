@@ -4,15 +4,15 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
+import ua.vehicle.registrations.dto.searchable.BodySearchableDto;
+import ua.vehicle.registrations.interfaces.BaseRegistrationApi;
+import ua.vehicle.registrations.vehicle.management.repository.db.jpa.BodyEntity;
 import ua.vehicle.registrations.vehicle.management.repository.services.BodyService;
-import ua.vehicle.registrations.vehicle.service.api.BaseVehicleApiWithId;
-import ua.vehicle.registrations.vehicle.service.dto.jpa.BodyEntity;
-import ua.vehicle.registrations.vehicle.service.dto.searchable.BodySearchableDto;
 
 @RestController
 @RequestMapping("/api/v1/management/registrations")
 @RequiredArgsConstructor
-public class BodyController implements BaseVehicleApiWithId<BodySearchableDto, BodyEntity, String> {
+public class BodyController implements BaseRegistrationApi<BodySearchableDto, BodyEntity, String> {
 
     private final BodyService service;
 
@@ -27,7 +27,6 @@ public class BodyController implements BaseVehicleApiWithId<BodySearchableDto, B
     public long countRecordsByCriteria(@RequestBody BodySearchableDto searchObject) {
         return service.countRecordsByCriteria(searchObject);
     }
-
     @GetMapping("/count/bodies")
     @Override
     public long getNumberOfAllRecords() {

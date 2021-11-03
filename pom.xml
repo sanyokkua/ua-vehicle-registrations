@@ -36,11 +36,13 @@
         <spring-cloud.version>2020.0.4</spring-cloud.version>
     </properties>
     <modules>
+        <module>component-common</module>
         <module>component-infrastructure</module>
         <module>component-db-management</module>
         <module>component-vehicle</module>
         <module>component-user</module>
         <module>component-authentication</module>
+        <module>component-api</module>
     </modules>
     <dependencyManagement>
         <dependencies>

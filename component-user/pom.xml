@@ -16,7 +16,6 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>api-user-service</module>
         <module>user-management-repository-service</module>
         <module>user-search-repository-service</module>
     </modules>

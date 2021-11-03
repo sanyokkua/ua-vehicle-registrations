@@ -5,14 +5,14 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 import ua.vehicle.registrations.vehicle.management.repository.services.RegistrationService;
-import ua.vehicle.registrations.vehicle.service.api.BaseVehicleApiWithId;
-import ua.vehicle.registrations.vehicle.service.dto.jpa.RegistrationEntity;
-import ua.vehicle.registrations.vehicle.service.dto.searchable.RegistrationSearchableDto;
+import ua.vehicle.registrations.interfaces.BaseRegistrationApi;
+import ua.vehicle.registrations.vehicle.management.repository.db.jpa.RegistrationEntity;
+import ua.vehicle.registrations.dto.searchable.RegistrationSearchableDto;
 
 @RestController
 @RequestMapping("/api/v1/management/registrations")
 @RequiredArgsConstructor
-public class RegistrationController implements BaseVehicleApiWithId<RegistrationSearchableDto, RegistrationEntity, Long> {
+public class RegistrationController implements BaseRegistrationApi<RegistrationSearchableDto, RegistrationEntity, Long> {
 
     private final RegistrationService service;
 
