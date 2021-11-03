@@ -1,0 +1,3401 @@
+{
+	"info": {
+		"_postman_id": "b0859364-83a4-4b05-bdee-894003ccb703",
+		"name": "ua-vehicle-registrations",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "API-AUTHENTICATION-SERVICE",
+			"item": []
+		},
+		{
+			"name": "API-USER-SERVICE",
+			"item": []
+		},
+		{
+			"name": "API-VEHICLE-DATA-SERVICE",
+			"item": [
+				{
+					"name": "actuator",
+					"item": [
+						{
+							"name": "health",
+							"item": [
+								{
+									"name": "/actuator/health",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{api-vehicle-data-service-base-url}}/actuator/health",
+											"host": [
+												"{{api-vehicle-data-service-base-url}}"
+											],
+											"path": [
+												"actuator",
+												"health"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/actuator/health/**",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{api-vehicle-data-service-base-url}}/actuator/health/**",
+											"host": [
+												"{{api-vehicle-data-service-base-url}}"
+											],
+											"path": [
+												"actuator",
+												"health",
+												"**"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "/actuator",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{api-vehicle-data-service-base-url}}/actuator",
+									"host": [
+										"{{api-vehicle-data-service-base-url}}"
+									],
+									"path": [
+										"actuator"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "api",
+					"item": [
+						{
+							"name": "bodies",
+							"item": [
+								{
+									"name": "/count/bodies",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{api-vehicle-data-service-base-url}}/api/v1/registrationRecords/count/bodies",
+											"host": [
+												"{{api-vehicle-data-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"registrationRecords",
+												"count",
+												"bodies"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/count/bodies",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"brandName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{api-vehicle-data-service-base-url}}/api/v1/registrationRecords/count/bodies",
+											"host": [
+												"{{api-vehicle-data-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"registrationRecords",
+												"count",
+												"bodies"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/bodies/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{api-vehicle-data-service-base-url}}/api/v1/registrationRecords/bodies/:id",
+											"host": [
+												"{{api-vehicle-data-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"registrationRecords",
+												"bodies",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>",
+													"description": "(Required) id"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/search/bodies",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"brandName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{api-vehicle-data-service-base-url}}/api/v1/registrationRecords/search/bodies?offset=0&paged=false&pageNumber=0&pageSize=0&sort.sorted=false&sort.unsorted=false&unpaged=false",
+											"host": [
+												"{{api-vehicle-data-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"registrationRecords",
+												"search",
+												"bodies"
+											],
+											"query": [
+												{
+													"key": "offset",
+													"value": "0"
+												},
+												{
+													"key": "paged",
+													"value": "false"
+												},
+												{
+													"key": "pageNumber",
+													"value": "0"
+												},
+												{
+													"key": "pageSize",
+													"value": "0"
+												},
+												{
+													"key": "sort.sorted",
+													"value": "false"
+												},
+												{
+													"key": "sort.unsorted",
+													"value": "false"
+												},
+												{
+													"key": "unpaged",
+													"value": "false"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "brands",
+							"item": [
+								{
+									"name": "/count/brands",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{api-vehicle-data-service-base-url}}/api/v1/registrationRecords/count/brands",
+											"host": [
+												"{{api-vehicle-data-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"registrationRecords",
+												"count",
+												"brands"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/count/brands",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"brandName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{api-vehicle-data-service-base-url}}/api/v1/registrationRecords/count/brands",
+											"host": [
+												"{{api-vehicle-data-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"registrationRecords",
+												"count",
+												"brands"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/brands/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{api-vehicle-data-service-base-url}}/api/v1/registrationRecords/brands/:id",
+											"host": [
+												"{{api-vehicle-data-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"registrationRecords",
+												"brands",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>",
+													"description": "(Required) id"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/search/brands",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"brandName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{api-vehicle-data-service-base-url}}/api/v1/registrationRecords/search/brands?offset=0&paged=false&pageNumber=0&pageSize=0&sort.sorted=false&sort.unsorted=false&unpaged=false",
+											"host": [
+												"{{api-vehicle-data-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"registrationRecords",
+												"search",
+												"brands"
+											],
+											"query": [
+												{
+													"key": "offset",
+													"value": "0"
+												},
+												{
+													"key": "paged",
+													"value": "false"
+												},
+												{
+													"key": "pageNumber",
+													"value": "0"
+												},
+												{
+													"key": "pageSize",
+													"value": "0"
+												},
+												{
+													"key": "sort.sorted",
+													"value": "false"
+												},
+												{
+													"key": "sort.unsorted",
+													"value": "false"
+												},
+												{
+													"key": "unpaged",
+													"value": "false"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "colors",
+							"item": [
+								{
+									"name": "/count/colors",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{api-vehicle-data-service-base-url}}/api/v1/registrationRecords/count/colors",
+											"host": [
+												"{{api-vehicle-data-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"registrationRecords",
+												"count",
+												"colors"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/count/colors",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"colorName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{api-vehicle-data-service-base-url}}/api/v1/registrationRecords/count/colors",
+											"host": [
+												"{{api-vehicle-data-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"registrationRecords",
+												"count",
+												"colors"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/colors/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{api-vehicle-data-service-base-url}}/api/v1/registrationRecords/colors/:id",
+											"host": [
+												"{{api-vehicle-data-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"registrationRecords",
+												"colors",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>",
+													"description": "(Required) id"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/search/colors",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"colorName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{api-vehicle-data-service-base-url}}/api/v1/registrationRecords/search/colors?offset=0&paged=false&pageNumber=0&pageSize=0&sort.sorted=false&sort.unsorted=false&unpaged=false",
+											"host": [
+												"{{api-vehicle-data-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"registrationRecords",
+												"search",
+												"colors"
+											],
+											"query": [
+												{
+													"key": "offset",
+													"value": "0"
+												},
+												{
+													"key": "paged",
+													"value": "false"
+												},
+												{
+													"key": "pageNumber",
+													"value": "0"
+												},
+												{
+													"key": "pageSize",
+													"value": "0"
+												},
+												{
+													"key": "sort.sorted",
+													"value": "false"
+												},
+												{
+													"key": "sort.unsorted",
+													"value": "false"
+												},
+												{
+													"key": "unpaged",
+													"value": "false"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "departments",
+							"item": [
+								{
+									"name": "/count/departments",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{api-vehicle-data-service-base-url}}/api/v1/registrationRecords/count/departments",
+											"host": [
+												"{{api-vehicle-data-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"registrationRecords",
+												"count",
+												"departments"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/count/departments",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"depCode\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"depName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{api-vehicle-data-service-base-url}}/api/v1/registrationRecords/count/departments",
+											"host": [
+												"{{api-vehicle-data-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"registrationRecords",
+												"count",
+												"departments"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/departments/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{api-vehicle-data-service-base-url}}/api/v1/registrationRecords/departments/:id",
+											"host": [
+												"{{api-vehicle-data-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"registrationRecords",
+												"departments",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "0",
+													"description": "(Required) id"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/search/departments",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"depCode\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"depName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{api-vehicle-data-service-base-url}}/api/v1/registrationRecords/search/departments?offset=0&paged=false&pageNumber=0&pageSize=0&sort.sorted=false&sort.unsorted=false&unpaged=false",
+											"host": [
+												"{{api-vehicle-data-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"registrationRecords",
+												"search",
+												"departments"
+											],
+											"query": [
+												{
+													"key": "offset",
+													"value": "0"
+												},
+												{
+													"key": "paged",
+													"value": "false"
+												},
+												{
+													"key": "pageNumber",
+													"value": "0"
+												},
+												{
+													"key": "pageSize",
+													"value": "0"
+												},
+												{
+													"key": "sort.sorted",
+													"value": "false"
+												},
+												{
+													"key": "sort.unsorted",
+													"value": "false"
+												},
+												{
+													"key": "unpaged",
+													"value": "false"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "fuel Types",
+							"item": [
+								{
+									"name": "/count/fuelTypes",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{api-vehicle-data-service-base-url}}/api/v1/registrationRecords/count/fuelTypes",
+											"host": [
+												"{{api-vehicle-data-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"registrationRecords",
+												"count",
+												"fuelTypes"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/count/fuelTypes",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"fuelType\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{api-vehicle-data-service-base-url}}/api/v1/registrationRecords/count/fuelTypes",
+											"host": [
+												"{{api-vehicle-data-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"registrationRecords",
+												"count",
+												"fuelTypes"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/fuelTypes/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{api-vehicle-data-service-base-url}}/api/v1/registrationRecords/fuelTypes/:id",
+											"host": [
+												"{{api-vehicle-data-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"registrationRecords",
+												"fuelTypes",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>",
+													"description": "(Required) id"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/search/fuelTypes",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"fuelType\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{api-vehicle-data-service-base-url}}/api/v1/registrationRecords/search/fuelTypes?offset=0&paged=false&pageNumber=0&pageSize=0&sort.sorted=false&sort.unsorted=false&unpaged=false",
+											"host": [
+												"{{api-vehicle-data-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"registrationRecords",
+												"search",
+												"fuelTypes"
+											],
+											"query": [
+												{
+													"key": "offset",
+													"value": "0"
+												},
+												{
+													"key": "paged",
+													"value": "false"
+												},
+												{
+													"key": "pageNumber",
+													"value": "0"
+												},
+												{
+													"key": "pageSize",
+													"value": "0"
+												},
+												{
+													"key": "sort.sorted",
+													"value": "false"
+												},
+												{
+													"key": "sort.unsorted",
+													"value": "false"
+												},
+												{
+													"key": "unpaged",
+													"value": "false"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "kinds",
+							"item": [
+								{
+									"name": "/count/kinds",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{api-vehicle-data-service-base-url}}/api/v1/registrationRecords/count/kinds",
+											"host": [
+												"{{api-vehicle-data-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"registrationRecords",
+												"count",
+												"kinds"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/count/kinds",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"kindName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{api-vehicle-data-service-base-url}}/api/v1/registrationRecords/count/kinds",
+											"host": [
+												"{{api-vehicle-data-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"registrationRecords",
+												"count",
+												"kinds"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/kinds/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{api-vehicle-data-service-base-url}}/api/v1/registrationRecords/kinds/:id",
+											"host": [
+												"{{api-vehicle-data-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"registrationRecords",
+												"kinds",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>",
+													"description": "(Required) id"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/search/kinds",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"kindName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{api-vehicle-data-service-base-url}}/api/v1/registrationRecords/search/kinds?offset=0&paged=false&pageNumber=0&pageSize=0&sort.sorted=false&sort.unsorted=false&unpaged=false",
+											"host": [
+												"{{api-vehicle-data-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"registrationRecords",
+												"search",
+												"kinds"
+											],
+											"query": [
+												{
+													"key": "offset",
+													"value": "0"
+												},
+												{
+													"key": "paged",
+													"value": "false"
+												},
+												{
+													"key": "pageNumber",
+													"value": "0"
+												},
+												{
+													"key": "pageSize",
+													"value": "0"
+												},
+												{
+													"key": "sort.sorted",
+													"value": "false"
+												},
+												{
+													"key": "sort.unsorted",
+													"value": "false"
+												},
+												{
+													"key": "unpaged",
+													"value": "false"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "models",
+							"item": [
+								{
+									"name": "/count/models",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{api-vehicle-data-service-base-url}}/api/v1/registrationRecords/count/models",
+											"host": [
+												"{{api-vehicle-data-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"registrationRecords",
+												"count",
+												"models"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/count/models",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"modelName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{api-vehicle-data-service-base-url}}/api/v1/registrationRecords/count/models",
+											"host": [
+												"{{api-vehicle-data-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"registrationRecords",
+												"count",
+												"models"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/models/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{api-vehicle-data-service-base-url}}/api/v1/registrationRecords/models/:id",
+											"host": [
+												"{{api-vehicle-data-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"registrationRecords",
+												"models",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>",
+													"description": "(Required) id"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/search/models",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"modelName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{api-vehicle-data-service-base-url}}/api/v1/registrationRecords/search/models?offset=0&paged=false&pageNumber=0&pageSize=0&sort.sorted=false&sort.unsorted=false&unpaged=false",
+											"host": [
+												"{{api-vehicle-data-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"registrationRecords",
+												"search",
+												"models"
+											],
+											"query": [
+												{
+													"key": "offset",
+													"value": "0"
+												},
+												{
+													"key": "paged",
+													"value": "false"
+												},
+												{
+													"key": "pageNumber",
+													"value": "0"
+												},
+												{
+													"key": "pageSize",
+													"value": "0"
+												},
+												{
+													"key": "sort.sorted",
+													"value": "false"
+												},
+												{
+													"key": "sort.unsorted",
+													"value": "false"
+												},
+												{
+													"key": "unpaged",
+													"value": "false"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "operations",
+							"item": [
+								{
+									"name": "/count/operations",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{api-vehicle-data-service-base-url}}/api/v1/registrationRecords/count/operations",
+											"host": [
+												"{{api-vehicle-data-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"registrationRecords",
+												"count",
+												"operations"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/count/operations",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"opCode\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"opName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{api-vehicle-data-service-base-url}}/api/v1/registrationRecords/count/operations",
+											"host": [
+												"{{api-vehicle-data-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"registrationRecords",
+												"count",
+												"operations"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/operations/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{api-vehicle-data-service-base-url}}/api/v1/registrationRecords/operations/:id",
+											"host": [
+												"{{api-vehicle-data-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"registrationRecords",
+												"operations",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "0",
+													"description": "(Required) id"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/search/operations",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"opCode\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"opName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{api-vehicle-data-service-base-url}}/api/v1/registrationRecords/search/operations?offset=0&paged=false&pageNumber=0&pageSize=0&sort.sorted=false&sort.unsorted=false&unpaged=false",
+											"host": [
+												"{{api-vehicle-data-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"registrationRecords",
+												"search",
+												"operations"
+											],
+											"query": [
+												{
+													"key": "offset",
+													"value": "0"
+												},
+												{
+													"key": "paged",
+													"value": "false"
+												},
+												{
+													"key": "pageNumber",
+													"value": "0"
+												},
+												{
+													"key": "pageSize",
+													"value": "0"
+												},
+												{
+													"key": "sort.sorted",
+													"value": "false"
+												},
+												{
+													"key": "sort.unsorted",
+													"value": "false"
+												},
+												{
+													"key": "unpaged",
+													"value": "false"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "purposes",
+							"item": [
+								{
+									"name": "/count/purposes",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{api-vehicle-data-service-base-url}}/api/v1/registrationRecords/count/purposes",
+											"host": [
+												"{{api-vehicle-data-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"registrationRecords",
+												"count",
+												"purposes"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/count/purposes",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"purposeName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{api-vehicle-data-service-base-url}}/api/v1/registrationRecords/count/purposes",
+											"host": [
+												"{{api-vehicle-data-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"registrationRecords",
+												"count",
+												"purposes"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/purposes/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{api-vehicle-data-service-base-url}}/api/v1/registrationRecords/purposes/:id",
+											"host": [
+												"{{api-vehicle-data-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"registrationRecords",
+												"purposes",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>",
+													"description": "(Required) id"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/search/purposes",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"purposeName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{api-vehicle-data-service-base-url}}/api/v1/registrationRecords/search/purposes?offset=0&paged=false&pageNumber=0&pageSize=0&sort.sorted=false&sort.unsorted=false&unpaged=false",
+											"host": [
+												"{{api-vehicle-data-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"registrationRecords",
+												"search",
+												"purposes"
+											],
+											"query": [
+												{
+													"key": "offset",
+													"value": "0"
+												},
+												{
+													"key": "paged",
+													"value": "false"
+												},
+												{
+													"key": "pageNumber",
+													"value": "0"
+												},
+												{
+													"key": "pageSize",
+													"value": "0"
+												},
+												{
+													"key": "sort.sorted",
+													"value": "false"
+												},
+												{
+													"key": "sort.unsorted",
+													"value": "false"
+												},
+												{
+													"key": "unpaged",
+													"value": "false"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "registrations",
+							"item": [
+								{
+									"name": "/count/registrations",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{api-vehicle-data-service-base-url}}/api/v1/registrationRecords/count/registrations",
+											"host": [
+												"{{api-vehicle-data-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"registrationRecords",
+												"count",
+												"registrations"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/count/registrations",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"bodyType\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"brandName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"colorName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"depCode\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"depName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"engineCapacity\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"fuelType\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"kindName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"makeYear\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"modelName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"opCode\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"opName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"ownWeight\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"personRegAddress\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"personType\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"purposeName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"regDate\": \"<date>\",\n    \"regId\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"regNumber\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"totalWeight\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"vehicleId\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"vinNumber\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{api-vehicle-data-service-base-url}}/api/v1/registrationRecords/count/registrations",
+											"host": [
+												"{{api-vehicle-data-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"registrationRecords",
+												"count",
+												"registrations"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/registrations/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{api-vehicle-data-service-base-url}}/api/v1/registrationRecords/registrations/:id",
+											"host": [
+												"{{api-vehicle-data-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"registrationRecords",
+												"registrations",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "0",
+													"description": "(Required) id"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/search/registrations",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"bodyType\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"brandName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"colorName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"depCode\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"depName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"engineCapacity\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"fuelType\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"kindName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"makeYear\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"modelName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"opCode\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"opName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"ownWeight\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"personRegAddress\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"personType\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"purposeName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"regDate\": \"<date>\",\n    \"regId\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"regNumber\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"totalWeight\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"vehicleId\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"vinNumber\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{api-vehicle-data-service-base-url}}/api/v1/registrationRecords/search/registrations?offset=0&paged=false&pageNumber=0&pageSize=0&sort.sorted=false&sort.unsorted=false&unpaged=false",
+											"host": [
+												"{{api-vehicle-data-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"registrationRecords",
+												"search",
+												"registrations"
+											],
+											"query": [
+												{
+													"key": "offset",
+													"value": "0"
+												},
+												{
+													"key": "paged",
+													"value": "false"
+												},
+												{
+													"key": "pageNumber",
+													"value": "0"
+												},
+												{
+													"key": "pageSize",
+													"value": "0"
+												},
+												{
+													"key": "sort.sorted",
+													"value": "false"
+												},
+												{
+													"key": "sort.unsorted",
+													"value": "false"
+												},
+												{
+													"key": "unpaged",
+													"value": "false"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "vehicles",
+							"item": [
+								{
+									"name": "/count/vehicles",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{api-vehicle-data-service-base-url}}/api/v1/registrationRecords/count/vehicles",
+											"host": [
+												"{{api-vehicle-data-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"registrationRecords",
+												"count",
+												"vehicles"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/count/vehicles",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"bodyType\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"brandName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"engineCapacity\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"fuelType\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"kindName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"makeYear\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"modelName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"ownWeight\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"purposeName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"totalWeight\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"vehicleId\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{api-vehicle-data-service-base-url}}/api/v1/registrationRecords/count/vehicles",
+											"host": [
+												"{{api-vehicle-data-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"registrationRecords",
+												"count",
+												"vehicles"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/vehicles/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{api-vehicle-data-service-base-url}}/api/v1/registrationRecords/vehicles/:id",
+											"host": [
+												"{{api-vehicle-data-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"registrationRecords",
+												"vehicles",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "0",
+													"description": "(Required) id"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/search/vehicles",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"bodyType\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"brandName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"engineCapacity\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"fuelType\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"kindName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"makeYear\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"modelName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"ownWeight\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"purposeName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"totalWeight\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"vehicleId\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{api-vehicle-data-service-base-url}}/api/v1/registrationRecords/search/vehicles?offset=0&paged=false&pageNumber=0&pageSize=0&sort.sorted=false&sort.unsorted=false&unpaged=false",
+											"host": [
+												"{{api-vehicle-data-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"registrationRecords",
+												"search",
+												"vehicles"
+											],
+											"query": [
+												{
+													"key": "offset",
+													"value": "0"
+												},
+												{
+													"key": "paged",
+													"value": "false"
+												},
+												{
+													"key": "pageNumber",
+													"value": "0"
+												},
+												{
+													"key": "pageSize",
+													"value": "0"
+												},
+												{
+													"key": "sort.sorted",
+													"value": "false"
+												},
+												{
+													"key": "sort.unsorted",
+													"value": "false"
+												},
+												{
+													"key": "unpaged",
+													"value": "false"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "VEHICLE-DATA-MANAGEMENT-SERVICE",
+			"item": []
+		},
+		{
+			"name": "VEHICLE-DATA-REQUEST-REPOSITORY-SERVICE",
+			"item": [
+				{
+					"name": "actuator",
+					"item": [
+						{
+							"name": "health",
+							"item": [
+								{
+									"name": "/actuator/health",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{vehicle-data-request-repository-service-base-url}}/actuator/health",
+											"host": [
+												"{{vehicle-data-request-repository-service-base-url}}"
+											],
+											"path": [
+												"actuator",
+												"health"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/actuator/health/**",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{vehicle-data-request-repository-service-base-url}}/actuator/health/**",
+											"host": [
+												"{{vehicle-data-request-repository-service-base-url}}"
+											],
+											"path": [
+												"actuator",
+												"health",
+												"**"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "/actuator",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{vehicle-data-request-repository-service-base-url}}/actuator",
+									"host": [
+										"{{vehicle-data-request-repository-service-base-url}}"
+									],
+									"path": [
+										"actuator"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "api",
+					"item": [
+						{
+							"name": "bodies",
+							"item": [
+								{
+									"name": "/count/bodies",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{vehicle-data-request-repository-service-base-url}}/api/v1/management/registrations/count/bodies",
+											"host": [
+												"{{vehicle-data-request-repository-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"management",
+												"registrations",
+												"count",
+												"bodies"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/count/bodies",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"bodyType\": {\n        \"mainOrMinValue\": \"ФУРГО\",\n        \"operation\": \"LIKE\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{vehicle-data-request-repository-service-base-url}}/api/v1/management/registrations/count/bodies",
+											"host": [
+												"{{vehicle-data-request-repository-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"management",
+												"registrations",
+												"count",
+												"bodies"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/bodies/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{vehicle-data-request-repository-service-base-url}}/api/v1/management/registrations/bodies/:id",
+											"host": [
+												"{{vehicle-data-request-repository-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"management",
+												"registrations",
+												"bodies",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "УНІВЕРСАЛ-B",
+													"description": "(Required) id"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/search/bodies",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"bodyType\": {\n        \"mainOrMinValue\": \"ФУРГО\",\n        \"operation\": \"LIKE\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{vehicle-data-request-repository-service-base-url}}/api/v1/management/registrations/search/bodies?offset=0&paged=false&pageNumber=0&pageSize=0&sort.sorted=false&sort.unsorted=false&unpaged=false",
+											"host": [
+												"{{vehicle-data-request-repository-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"management",
+												"registrations",
+												"search",
+												"bodies"
+											],
+											"query": [
+												{
+													"key": "offset",
+													"value": "0"
+												},
+												{
+													"key": "paged",
+													"value": "false"
+												},
+												{
+													"key": "pageNumber",
+													"value": "0"
+												},
+												{
+													"key": "pageSize",
+													"value": "0"
+												},
+												{
+													"key": "sort.sorted",
+													"value": "false"
+												},
+												{
+													"key": "sort.unsorted",
+													"value": "false"
+												},
+												{
+													"key": "unpaged",
+													"value": "false"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "brands",
+							"item": [
+								{
+									"name": "/count/brands",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{vehicle-data-request-repository-service-base-url}}/api/v1/management/registrations/count/brands",
+											"host": [
+												"{{vehicle-data-request-repository-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"management",
+												"registrations",
+												"count",
+												"brands"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/count/brands",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"brandName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{vehicle-data-request-repository-service-base-url}}/api/v1/management/registrations/count/brands",
+											"host": [
+												"{{vehicle-data-request-repository-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"management",
+												"registrations",
+												"count",
+												"brands"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/brands/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{vehicle-data-request-repository-service-base-url}}/api/v1/management/registrations/brands/:id",
+											"host": [
+												"{{vehicle-data-request-repository-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"management",
+												"registrations",
+												"brands",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>",
+													"description": "(Required) id"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/search/brands",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"brandName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{vehicle-data-request-repository-service-base-url}}/api/v1/management/registrations/search/brands?offset=0&paged=false&pageNumber=0&pageSize=0&sort.sorted=false&sort.unsorted=false&unpaged=false",
+											"host": [
+												"{{vehicle-data-request-repository-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"management",
+												"registrations",
+												"search",
+												"brands"
+											],
+											"query": [
+												{
+													"key": "offset",
+													"value": "0"
+												},
+												{
+													"key": "paged",
+													"value": "false"
+												},
+												{
+													"key": "pageNumber",
+													"value": "0"
+												},
+												{
+													"key": "pageSize",
+													"value": "0"
+												},
+												{
+													"key": "sort.sorted",
+													"value": "false"
+												},
+												{
+													"key": "sort.unsorted",
+													"value": "false"
+												},
+												{
+													"key": "unpaged",
+													"value": "false"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "colors",
+							"item": [
+								{
+									"name": "/count/colors",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{vehicle-data-request-repository-service-base-url}}/api/v1/management/registrations/count/colors",
+											"host": [
+												"{{vehicle-data-request-repository-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"management",
+												"registrations",
+												"count",
+												"colors"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/count/colors",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"colorName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{vehicle-data-request-repository-service-base-url}}/api/v1/management/registrations/count/colors",
+											"host": [
+												"{{vehicle-data-request-repository-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"management",
+												"registrations",
+												"count",
+												"colors"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/colors/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{vehicle-data-request-repository-service-base-url}}/api/v1/management/registrations/colors/:id",
+											"host": [
+												"{{vehicle-data-request-repository-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"management",
+												"registrations",
+												"colors",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>",
+													"description": "(Required) id"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/search/colors",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"colorName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{vehicle-data-request-repository-service-base-url}}/api/v1/management/registrations/search/colors?offset=0&paged=false&pageNumber=0&pageSize=0&sort.sorted=false&sort.unsorted=false&unpaged=false",
+											"host": [
+												"{{vehicle-data-request-repository-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"management",
+												"registrations",
+												"search",
+												"colors"
+											],
+											"query": [
+												{
+													"key": "offset",
+													"value": "0"
+												},
+												{
+													"key": "paged",
+													"value": "false"
+												},
+												{
+													"key": "pageNumber",
+													"value": "0"
+												},
+												{
+													"key": "pageSize",
+													"value": "0"
+												},
+												{
+													"key": "sort.sorted",
+													"value": "false"
+												},
+												{
+													"key": "sort.unsorted",
+													"value": "false"
+												},
+												{
+													"key": "unpaged",
+													"value": "false"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "departments",
+							"item": [
+								{
+									"name": "/count/departments",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{vehicle-data-request-repository-service-base-url}}/api/v1/management/registrations/count/departments",
+											"host": [
+												"{{vehicle-data-request-repository-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"management",
+												"registrations",
+												"count",
+												"departments"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/count/departments",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"depCode\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"depName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{vehicle-data-request-repository-service-base-url}}/api/v1/management/registrations/count/departments",
+											"host": [
+												"{{vehicle-data-request-repository-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"management",
+												"registrations",
+												"count",
+												"departments"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/departments/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{vehicle-data-request-repository-service-base-url}}/api/v1/management/registrations/departments/:id",
+											"host": [
+												"{{vehicle-data-request-repository-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"management",
+												"registrations",
+												"departments",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "0",
+													"description": "(Required) id"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/search/departments",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"depCode\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"depName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{vehicle-data-request-repository-service-base-url}}/api/v1/management/registrations/search/departments?offset=0&paged=false&pageNumber=0&pageSize=0&sort.sorted=false&sort.unsorted=false&unpaged=false",
+											"host": [
+												"{{vehicle-data-request-repository-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"management",
+												"registrations",
+												"search",
+												"departments"
+											],
+											"query": [
+												{
+													"key": "offset",
+													"value": "0"
+												},
+												{
+													"key": "paged",
+													"value": "false"
+												},
+												{
+													"key": "pageNumber",
+													"value": "0"
+												},
+												{
+													"key": "pageSize",
+													"value": "0"
+												},
+												{
+													"key": "sort.sorted",
+													"value": "false"
+												},
+												{
+													"key": "sort.unsorted",
+													"value": "false"
+												},
+												{
+													"key": "unpaged",
+													"value": "false"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "fuel Types",
+							"item": [
+								{
+									"name": "/count/fuelTypes",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{vehicle-data-request-repository-service-base-url}}/api/v1/management/registrations/count/fuelTypes",
+											"host": [
+												"{{vehicle-data-request-repository-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"management",
+												"registrations",
+												"count",
+												"fuelTypes"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/count/fuelTypes",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"fuelType\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{vehicle-data-request-repository-service-base-url}}/api/v1/management/registrations/count/fuelTypes",
+											"host": [
+												"{{vehicle-data-request-repository-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"management",
+												"registrations",
+												"count",
+												"fuelTypes"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/fuelTypes/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{vehicle-data-request-repository-service-base-url}}/api/v1/management/registrations/fuelTypes/:id",
+											"host": [
+												"{{vehicle-data-request-repository-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"management",
+												"registrations",
+												"fuelTypes",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>",
+													"description": "(Required) id"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/search/fuelTypes",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"fuelType\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{vehicle-data-request-repository-service-base-url}}/api/v1/management/registrations/search/fuelTypes?offset=0&paged=false&pageNumber=0&pageSize=0&sort.sorted=false&sort.unsorted=false&unpaged=false",
+											"host": [
+												"{{vehicle-data-request-repository-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"management",
+												"registrations",
+												"search",
+												"fuelTypes"
+											],
+											"query": [
+												{
+													"key": "offset",
+													"value": "0"
+												},
+												{
+													"key": "paged",
+													"value": "false"
+												},
+												{
+													"key": "pageNumber",
+													"value": "0"
+												},
+												{
+													"key": "pageSize",
+													"value": "0"
+												},
+												{
+													"key": "sort.sorted",
+													"value": "false"
+												},
+												{
+													"key": "sort.unsorted",
+													"value": "false"
+												},
+												{
+													"key": "unpaged",
+													"value": "false"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "kinds",
+							"item": [
+								{
+									"name": "/count/kinds",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{vehicle-data-request-repository-service-base-url}}/api/v1/management/registrations/count/kinds",
+											"host": [
+												"{{vehicle-data-request-repository-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"management",
+												"registrations",
+												"count",
+												"kinds"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/count/kinds",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"kindName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{vehicle-data-request-repository-service-base-url}}/api/v1/management/registrations/count/kinds",
+											"host": [
+												"{{vehicle-data-request-repository-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"management",
+												"registrations",
+												"count",
+												"kinds"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/kinds/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{vehicle-data-request-repository-service-base-url}}/api/v1/management/registrations/kinds/:id",
+											"host": [
+												"{{vehicle-data-request-repository-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"management",
+												"registrations",
+												"kinds",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>",
+													"description": "(Required) id"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/search/kinds",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"kindName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{vehicle-data-request-repository-service-base-url}}/api/v1/management/registrations/search/kinds?offset=0&paged=false&pageNumber=0&pageSize=0&sort.sorted=false&sort.unsorted=false&unpaged=false",
+											"host": [
+												"{{vehicle-data-request-repository-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"management",
+												"registrations",
+												"search",
+												"kinds"
+											],
+											"query": [
+												{
+													"key": "offset",
+													"value": "0"
+												},
+												{
+													"key": "paged",
+													"value": "false"
+												},
+												{
+													"key": "pageNumber",
+													"value": "0"
+												},
+												{
+													"key": "pageSize",
+													"value": "0"
+												},
+												{
+													"key": "sort.sorted",
+													"value": "false"
+												},
+												{
+													"key": "sort.unsorted",
+													"value": "false"
+												},
+												{
+													"key": "unpaged",
+													"value": "false"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "models",
+							"item": [
+								{
+									"name": "/count/models",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{vehicle-data-request-repository-service-base-url}}/api/v1/management/registrations/count/models",
+											"host": [
+												"{{vehicle-data-request-repository-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"management",
+												"registrations",
+												"count",
+												"models"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/count/models",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"modelName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{vehicle-data-request-repository-service-base-url}}/api/v1/management/registrations/count/models",
+											"host": [
+												"{{vehicle-data-request-repository-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"management",
+												"registrations",
+												"count",
+												"models"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/models/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{vehicle-data-request-repository-service-base-url}}/api/v1/management/registrations/models/:id",
+											"host": [
+												"{{vehicle-data-request-repository-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"management",
+												"registrations",
+												"models",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>",
+													"description": "(Required) id"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/search/models",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"modelName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{vehicle-data-request-repository-service-base-url}}/api/v1/management/registrations/search/models?offset=0&paged=false&pageNumber=0&pageSize=0&sort.sorted=false&sort.unsorted=false&unpaged=false",
+											"host": [
+												"{{vehicle-data-request-repository-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"management",
+												"registrations",
+												"search",
+												"models"
+											],
+											"query": [
+												{
+													"key": "offset",
+													"value": "0"
+												},
+												{
+													"key": "paged",
+													"value": "false"
+												},
+												{
+													"key": "pageNumber",
+													"value": "0"
+												},
+												{
+													"key": "pageSize",
+													"value": "0"
+												},
+												{
+													"key": "sort.sorted",
+													"value": "false"
+												},
+												{
+													"key": "sort.unsorted",
+													"value": "false"
+												},
+												{
+													"key": "unpaged",
+													"value": "false"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "operations",
+							"item": [
+								{
+									"name": "/count/operations",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{vehicle-data-request-repository-service-base-url}}/api/v1/management/registrations/count/operations",
+											"host": [
+												"{{vehicle-data-request-repository-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"management",
+												"registrations",
+												"count",
+												"operations"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/count/operations",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"opCode\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"opName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{vehicle-data-request-repository-service-base-url}}/api/v1/management/registrations/count/operations",
+											"host": [
+												"{{vehicle-data-request-repository-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"management",
+												"registrations",
+												"count",
+												"operations"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/operations/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{vehicle-data-request-repository-service-base-url}}/api/v1/management/registrations/operations/:id",
+											"host": [
+												"{{vehicle-data-request-repository-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"management",
+												"registrations",
+												"operations",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "0",
+													"description": "(Required) id"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/search/operations",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"opCode\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"opName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{vehicle-data-request-repository-service-base-url}}/api/v1/management/registrations/search/operations?offset=0&paged=false&pageNumber=0&pageSize=0&sort.sorted=false&sort.unsorted=false&unpaged=false",
+											"host": [
+												"{{vehicle-data-request-repository-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"management",
+												"registrations",
+												"search",
+												"operations"
+											],
+											"query": [
+												{
+													"key": "offset",
+													"value": "0"
+												},
+												{
+													"key": "paged",
+													"value": "false"
+												},
+												{
+													"key": "pageNumber",
+													"value": "0"
+												},
+												{
+													"key": "pageSize",
+													"value": "0"
+												},
+												{
+													"key": "sort.sorted",
+													"value": "false"
+												},
+												{
+													"key": "sort.unsorted",
+													"value": "false"
+												},
+												{
+													"key": "unpaged",
+													"value": "false"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "purposes",
+							"item": [
+								{
+									"name": "/count/purposes",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{vehicle-data-request-repository-service-base-url}}/api/v1/management/registrations/count/purposes",
+											"host": [
+												"{{vehicle-data-request-repository-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"management",
+												"registrations",
+												"count",
+												"purposes"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/count/purposes",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"purposeName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{vehicle-data-request-repository-service-base-url}}/api/v1/management/registrations/count/purposes",
+											"host": [
+												"{{vehicle-data-request-repository-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"management",
+												"registrations",
+												"count",
+												"purposes"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/purposes/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{vehicle-data-request-repository-service-base-url}}/api/v1/management/registrations/purposes/:id",
+											"host": [
+												"{{vehicle-data-request-repository-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"management",
+												"registrations",
+												"purposes",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>",
+													"description": "(Required) id"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/search/purposes",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"purposeName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{vehicle-data-request-repository-service-base-url}}/api/v1/management/registrations/search/purposes?offset=0&paged=false&pageNumber=0&pageSize=0&sort.sorted=false&sort.unsorted=false&unpaged=false",
+											"host": [
+												"{{vehicle-data-request-repository-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"management",
+												"registrations",
+												"search",
+												"purposes"
+											],
+											"query": [
+												{
+													"key": "offset",
+													"value": "0"
+												},
+												{
+													"key": "paged",
+													"value": "false"
+												},
+												{
+													"key": "pageNumber",
+													"value": "0"
+												},
+												{
+													"key": "pageSize",
+													"value": "0"
+												},
+												{
+													"key": "sort.sorted",
+													"value": "false"
+												},
+												{
+													"key": "sort.unsorted",
+													"value": "false"
+												},
+												{
+													"key": "unpaged",
+													"value": "false"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "registrations",
+							"item": [
+								{
+									"name": "/count/registrations",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{vehicle-data-request-repository-service-base-url}}/api/v1/management/registrations/count/registrations",
+											"host": [
+												"{{vehicle-data-request-repository-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"management",
+												"registrations",
+												"count",
+												"registrations"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/count/registrations",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"bodyType\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"brandName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"colorName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"depCode\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"depName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"engineCapacity\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"fuelType\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"kindName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"makeYear\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"modelName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"opCode\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"opName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"ownWeight\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"personRegAddress\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"personType\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"purposeName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"regDate\": \"<date>\",\n    \"regId\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"regNumber\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"totalWeight\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"vehicleId\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"vinNumber\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{vehicle-data-request-repository-service-base-url}}/api/v1/management/registrations/count/registrations",
+											"host": [
+												"{{vehicle-data-request-repository-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"management",
+												"registrations",
+												"count",
+												"registrations"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/registrations/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{vehicle-data-request-repository-service-base-url}}/api/v1/management/registrations/registrations/:id",
+											"host": [
+												"{{vehicle-data-request-repository-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"management",
+												"registrations",
+												"registrations",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "0",
+													"description": "(Required) id"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/search/registrations",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"bodyType\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"brandName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"colorName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"depCode\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"depName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"engineCapacity\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"fuelType\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"kindName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"makeYear\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"modelName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"opCode\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"opName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"ownWeight\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"personRegAddress\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"personType\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"purposeName\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"regDate\": \"<date>\",\n    \"regId\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"regNumber\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    },\n    \"totalWeight\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"vehicleId\": {\n        \"mainOrMinValue\": \"0\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"0\"\n    },\n    \"vinNumber\": {\n        \"mainOrMinValue\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"secondaryOrMaxValue\": \"<string>\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{vehicle-data-request-repository-service-base-url}}/api/v1/management/registrations/search/registrations?offset=0&paged=false&pageNumber=0&pageSize=0&sort.sorted=false&sort.unsorted=false&unpaged=false",
+											"host": [
+												"{{vehicle-data-request-repository-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"management",
+												"registrations",
+												"search",
+												"registrations"
+											],
+											"query": [
+												{
+													"key": "offset",
+													"value": "0"
+												},
+												{
+													"key": "paged",
+													"value": "false"
+												},
+												{
+													"key": "pageNumber",
+													"value": "0"
+												},
+												{
+													"key": "pageSize",
+													"value": "0"
+												},
+												{
+													"key": "sort.sorted",
+													"value": "false"
+												},
+												{
+													"key": "sort.unsorted",
+													"value": "false"
+												},
+												{
+													"key": "unpaged",
+													"value": "false"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "vehicles",
+							"item": [
+								{
+									"name": "/count/vehicles",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{vehicle-data-request-repository-service-base-url}}/api/v1/management/registrations/count/vehicles",
+											"host": [
+												"{{vehicle-data-request-repository-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"management",
+												"registrations",
+												"count",
+												"vehicles"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/count/vehicles",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"bodyType\": {\n        \"mainOrMinValue\": \"СЕДАН-B\",\n        \"operation\": \"IS\"\n    },\n    \"brandName\": {\n        \"mainOrMinValue\": \"MAZDA\",\n        \"operation\": \"IS\"\n    },\n    \"engineCapacity\": {\n        \"mainOrMinValue\": 1598,\n        \"operation\": \"IS\"\n    },\n    \"fuelType\": {\n        \"mainOrMinValue\": \"БЕНЗИН\",\n        \"operation\": \"IS\"\n    },\n    \"kindName\": {\n        \"mainOrMinValue\": \"ЛЕГКОВИЙ\",\n        \"operation\": \"IS\"\n    },\n    \"makeYear\": {\n        \"mainOrMinValue\": 2007,\n        \"operation\": \"IS\"\n    },\n    \"modelName\": {\n        \"mainOrMinValue\": \"3\",\n        \"operation\": \"IS\"\n    },\n    \"ownWeight\": {\n        \"mainOrMinValue\": 1225,\n        \"operation\": \"IS\"\n    },\n    \"purposeName\": {\n        \"mainOrMinValue\": \"ЗАГАЛЬНИЙ\",\n        \"operation\": \"IS\"\n    },\n    \"totalWeight\": {\n        \"mainOrMinValue\": 1710,\n        \"operation\": \"IS\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{vehicle-data-request-repository-service-base-url}}/api/v1/management/registrations/count/vehicles",
+											"host": [
+												"{{vehicle-data-request-repository-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"management",
+												"registrations",
+												"count",
+												"vehicles"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/vehicles/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{vehicle-data-request-repository-service-base-url}}/api/v1/management/registrations/vehicles/:id",
+											"host": [
+												"{{vehicle-data-request-repository-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"management",
+												"registrations",
+												"vehicles",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "0",
+													"description": "(Required) id"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/search/vehicles",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"bodyType\": {\n        \"mainOrMinValue\": \"СЕДАН-B\",\n        \"operation\": \"IS\"\n    },\n    \"brandName\": {\n        \"mainOrMinValue\": \"MAZDA\",\n        \"operation\": \"IS\"\n    },\n    \"engineCapacity\": {\n        \"mainOrMinValue\": 1598,\n        \"operation\": \"IS\"\n    },\n    \"fuelType\": {\n        \"mainOrMinValue\": \"БЕНЗИН\",\n        \"operation\": \"IS\"\n    },\n    \"kindName\": {\n        \"mainOrMinValue\": \"ЛЕГКОВИЙ\",\n        \"operation\": \"IS\"\n    },\n    \"makeYear\": {\n        \"mainOrMinValue\": 2007,\n        \"operation\": \"IS\"\n    },\n    \"modelName\": {\n        \"mainOrMinValue\": \"3\",\n        \"operation\": \"IS\"\n    },\n    \"ownWeight\": {\n        \"mainOrMinValue\": 1225,\n        \"operation\": \"IS\"\n    },\n    \"purposeName\": {\n        \"mainOrMinValue\": \"ЗАГАЛЬНИЙ\",\n        \"operation\": \"IS\"\n    },\n    \"totalWeight\": {\n        \"mainOrMinValue\": 1710,\n        \"operation\": \"IS\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{vehicle-data-request-repository-service-base-url}}/api/v1/management/registrations/search/vehicles?offset=0&paged=false&pageNumber=0&pageSize=0&sort.sorted=false&sort.unsorted=false&unpaged=false",
+											"host": [
+												"{{vehicle-data-request-repository-service-base-url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"management",
+												"registrations",
+												"search",
+												"vehicles"
+											],
+											"query": [
+												{
+													"key": "offset",
+													"value": "0"
+												},
+												{
+													"key": "paged",
+													"value": "false"
+												},
+												{
+													"key": "pageNumber",
+													"value": "0"
+												},
+												{
+													"key": "pageSize",
+													"value": "0"
+												},
+												{
+													"key": "sort.sorted",
+													"value": "false"
+												},
+												{
+													"key": "sort.unsorted",
+													"value": "false"
+												},
+												{
+													"key": "unpaged",
+													"value": "false"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}
