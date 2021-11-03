@@ -3,11 +3,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
+        <groupId>org.springframework.boot</groupId>
         <version>2.5.5</version>
         <relativePath/>
-        <!-- lookup parent from repository -->
     </parent>
 
     <groupId>ua.vehicle.registrations</groupId>
@@ -33,6 +32,8 @@
         <spring-rabbit-test.version>2.3.10</spring-rabbit-test.version>
         <springfox-boot-starter.version>3.0.0</springfox-boot-starter.version>
         <zip4j.version>2.9.0</zip4j.version>
+
+        <spring-cloud.version>2020.0.4</spring-cloud.version>
     </properties>
     <modules>
         <module>component-infrastructure</module>
@@ -120,8 +121,8 @@
                 <version>${spring-boot.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.springframework.data</groupId>
-                <artifactId>spring-data-jpa</artifactId>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-jdbc</artifactId>
                 <version>${spring-boot.version}</version>
             </dependency>
             <dependency>
@@ -156,6 +157,11 @@
             </dependency>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-bootstrap</artifactId>
+                <version>${spring-cloud-starter-config.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-config-server</artifactId>
                 <version>${spring-cloud-starter-config.version}</version>
             </dependency>
@@ -183,6 +189,13 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-commons</artifactId>
                 <version>${spring-cloud-starter-config.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -222,6 +235,11 @@
                             </path>
                         </annotationProcessorPaths>
                     </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>3.2.0</version>
                 </plugin>
             </plugins>
         </pluginManagement>
