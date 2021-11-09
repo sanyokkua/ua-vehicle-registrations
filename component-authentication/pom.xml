@@ -15,6 +15,6 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>authentication-repository-service</module>
+        <module>authentication-service</module>
     </modules>
 </project>

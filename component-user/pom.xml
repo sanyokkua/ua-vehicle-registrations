@@ -16,7 +16,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>user-management-repository-service</module>
-        <module>user-search-repository-service</module>
+        <module>user-management-service</module>
+        <module>user-search-service</module>
     </modules>
 </project>

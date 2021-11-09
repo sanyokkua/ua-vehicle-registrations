@@ -17,6 +17,6 @@
 
     <modules>
         <module>vehicle-data-management-service</module>
-        <module>vehicle-data-request-repository-service</module>
+        <module>vehicle-registrations-service</module>
     </modules>
 </project>
