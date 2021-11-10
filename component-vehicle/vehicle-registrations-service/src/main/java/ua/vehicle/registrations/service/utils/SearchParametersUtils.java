@@ -4,6 +4,9 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import ua.vehicle.registrations.annotations.FieldName;
+import ua.vehicle.registrations.aspects.annotations.LogInputOutput;
+import ua.vehicle.registrations.aspects.annotations.LogTimeMeasures;
+import ua.vehicle.registrations.aspects.annotations.SuppressRuntimeExceptions;
 import ua.vehicle.registrations.dto.flat.*;
 import ua.vehicle.registrations.enums.RegistrationFields;
 import ua.vehicle.registrations.service.dto.SearchEntityDto;
@@ -18,6 +21,9 @@ import java.util.stream.Stream;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class SearchParametersUtils {
 
+    @LogInputOutput
+    @LogTimeMeasures
+    @SuppressRuntimeExceptions
     public static List<SearchEntityDto> getSearchParameters() {
         var entities = Stream.of(
                 BodyFlatDto.class,

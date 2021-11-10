@@ -4,6 +4,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
+import ua.vehicle.registrations.aspects.annotations.LogInputOutput;
+import ua.vehicle.registrations.aspects.annotations.LogTimeMeasures;
+import ua.vehicle.registrations.aspects.annotations.SuppressRuntimeExceptions;
 import ua.vehicle.registrations.dto.flat.RegistrationFlatDto;
 import ua.vehicle.registrations.dto.searchable.RegistrationSearchableDto;
 import ua.vehicle.registrations.interfaces.BaseRegistrationApi;
@@ -18,6 +21,9 @@ public class RegistrationController implements BaseRegistrationApi<RegistrationS
     private final RegistrationService service;
 
     @PostMapping(value = "/search/registrations")
+    @LogInputOutput
+    @LogTimeMeasures
+    @SuppressRuntimeExceptions
     @Override
     public Page<RegistrationFlatDto> findRecordsByCriteria(@RequestBody RegistrationSearchableDto searchObject,
             Pageable pageable
@@ -26,18 +32,27 @@ public class RegistrationController implements BaseRegistrationApi<RegistrationS
     }
 
     @PostMapping(value = "/count/registrations")
+    @LogInputOutput
+    @LogTimeMeasures
+    @SuppressRuntimeExceptions
     @Override
     public long countRecordsByCriteria(@RequestBody RegistrationSearchableDto searchObject) {
         return service.countRecordsByCriteria(searchObject);
     }
 
     @GetMapping("/count/registrations")
+    @LogInputOutput
+    @LogTimeMeasures
+    @SuppressRuntimeExceptions
     @Override
     public long getNumberOfAllRecords() {
         return service.getNumberOfAllRecords();
     }
 
     @GetMapping("/registrations/{id}")
+    @LogInputOutput
+    @LogTimeMeasures
+    @SuppressRuntimeExceptions
     @Override
     public RegistrationFlatDto findRecord(@PathVariable Long id) {
         return service.findRecord(id);

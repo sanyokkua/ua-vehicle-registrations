@@ -4,6 +4,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
+import ua.vehicle.registrations.aspects.annotations.LogInputOutput;
+import ua.vehicle.registrations.aspects.annotations.LogTimeMeasures;
 import ua.vehicle.registrations.dto.Field;
 import ua.vehicle.registrations.enums.CriteriaOperations;
 
@@ -17,32 +19,44 @@ import java.util.Optional;
 @Component
 public class SpecificationUtils<I> {
 
+    @LogInputOutput
+    @LogTimeMeasures
     private <T> boolean isValidParams(Field<T> value, String... path) {
         log.debug("isValidParams, value - {}, path - {}", value, path);
         return Arrays.stream(path).noneMatch(StringUtils::isBlank) && Objects.nonNull(value);
     }
 
+    @LogInputOutput
+    @LogTimeMeasures
     private <T> boolean isValidIs(Field<T> value) {
         log.debug("isValidIs, value - {}", value);
         return CriteriaOperations.IS.equals(value.getOperation()) && Objects.nonNull(value.getMainOrMinValue());
     }
 
+    @LogInputOutput
+    @LogTimeMeasures
     private <T> boolean isValidGreaterThanOrEqualTo(Field<T> value) {
         log.debug("isValidGreaterThanOrEqualTo, value - {}", value);
         return CriteriaOperations.IS.equals(value.getOperation()) && Objects.nonNull(value.getMainOrMinValue());
     }
 
+    @LogInputOutput
+    @LogTimeMeasures
     private boolean isValidLessThanOrEqualTo(Field<Long> value) {
         log.debug("isValidLessThanOrEqualTo, value - {}", value);
         return CriteriaOperations.GREATER_THAN.equals(value.getOperation()) && Objects.nonNull(
                 value.getMainOrMinValue());
     }
 
+    @LogInputOutput
+    @LogTimeMeasures
     private boolean isValidLike(Field<String> value) {
         log.debug("isValidLike, value - {}", value);
         return CriteriaOperations.LIKE.equals(value.getOperation()) && Objects.nonNull(value.getMainOrMinValue());
     }
 
+    @LogInputOutput
+    @LogTimeMeasures
     private <T> Path<T> buildPath(Root<I> objRoot, String[] path) {
         log.debug("buildPath, root - {}, path - {}", objRoot, path);
         Path<T> root = objRoot.get(path[0]);
@@ -53,6 +67,8 @@ public class SpecificationUtils<I> {
         return root;
     }
 
+    @LogInputOutput
+    @LogTimeMeasures
     public <T> Optional<Specification<I>> equalTo(Field<T> value, String... path) {
         if (isValidParams(value, path) && isValidIs(value)) {
             return Optional.of((objRoot, cq, cb) -> cb.equal(buildPath(objRoot, path), value.getMainOrMinValue()));
@@ -61,6 +77,8 @@ public class SpecificationUtils<I> {
         return Optional.empty();
     }
 
+    @LogInputOutput
+    @LogTimeMeasures
     public Optional<Specification<I>> greaterThanOrEqualTo(Field<Long> value, String... path) {
         if (isValidParams(value, path) && isValidGreaterThanOrEqualTo(value)) {
             return Optional.of((objRoot, cq, cb) -> cb.greaterThanOrEqualTo(buildPath(objRoot, path),
@@ -71,6 +89,8 @@ public class SpecificationUtils<I> {
         return Optional.empty();
     }
 
+    @LogInputOutput
+    @LogTimeMeasures
     public Optional<Specification<I>> lessThanOrEqualTo(Field<Long> value, String... path) {
         if (isValidParams(value, path) && isValidLessThanOrEqualTo(value)) {
             return Optional.of((objRoot, cq, cb) -> cb.lessThanOrEqualTo(buildPath(objRoot, path),
@@ -81,6 +101,8 @@ public class SpecificationUtils<I> {
         return Optional.empty();
     }
 
+    @LogInputOutput
+    @LogTimeMeasures
     public Optional<Specification<I>> likeTo(Field<String> value, String... path) {
         if (isValidParams(value, path) && isValidLike(value)) {
             return Optional.of((objRoot, cq, cb) -> cb.like(buildPath(objRoot, path),

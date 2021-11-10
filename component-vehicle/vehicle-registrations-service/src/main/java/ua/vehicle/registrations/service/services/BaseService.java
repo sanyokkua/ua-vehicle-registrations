@@ -5,6 +5,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
+import ua.vehicle.registrations.aspects.annotations.LogInputOutput;
+import ua.vehicle.registrations.aspects.annotations.LogTimeMeasures;
+import ua.vehicle.registrations.aspects.annotations.SuppressRuntimeExceptions;
 import ua.vehicle.registrations.dto.Field;
 import ua.vehicle.registrations.exceptions.RecordIsNotFoundException;
 import ua.vehicle.registrations.mappers.InputMapper;
@@ -28,6 +31,9 @@ public abstract class BaseService<IN, OUT, JPA, ID> implements BaseVehicleServic
     protected final BaseRepository<JPA, ID> repository;
     protected final InputMapper<JPA, OUT> mapper;
 
+    @LogInputOutput
+    @LogTimeMeasures
+    @SuppressRuntimeExceptions
     protected Optional<Specification<JPA>> buildSpecification(List<Specification<JPA>> specs) {
         log.debug("buildSpecification started");
         if (Objects.isNull(specs) || specs.isEmpty()) {
@@ -48,6 +54,9 @@ public abstract class BaseService<IN, OUT, JPA, ID> implements BaseVehicleServic
         return Optional.of(specification);
     }
 
+    @LogInputOutput
+    @LogTimeMeasures
+    @SuppressRuntimeExceptions
     protected List<Specification<JPA>> createBaseSpecsForLong(Field<Long> field, String... path) {
         log.info("createBaseSpecsForLong, field - {}, path - {}", field, path);
         return Stream.of(
@@ -57,6 +66,9 @@ public abstract class BaseService<IN, OUT, JPA, ID> implements BaseVehicleServic
         ).filter(Optional::isPresent).map(Optional::get).collect(Collectors.toList());
     }
 
+    @LogInputOutput
+    @LogTimeMeasures
+    @SuppressRuntimeExceptions
     protected List<Specification<JPA>> createBaseSpecsForString(Field<String> field, String... path) {
         log.info("createBaseSpecsForString, field - {}, path - {}", field, path);
         return Stream.of(specificationUtils.equalTo(field, path), specificationUtils.likeTo(field, path))
@@ -65,6 +77,9 @@ public abstract class BaseService<IN, OUT, JPA, ID> implements BaseVehicleServic
                 .collect(Collectors.toList());
     }
 
+    @LogInputOutput
+    @LogTimeMeasures
+    @SuppressRuntimeExceptions
     @Override
     public Page<OUT> findRecordsByCriteria(IN searchObject, Pageable pageable) {
         log.info("findRecordsByCriteria, searchObject - {}, pageable - {}", searchObject, pageable);
@@ -77,6 +92,9 @@ public abstract class BaseService<IN, OUT, JPA, ID> implements BaseVehicleServic
         return Page.empty();
     }
 
+    @LogInputOutput
+    @LogTimeMeasures
+    @SuppressRuntimeExceptions
     @Override
     public long countRecordsByCriteria(IN searchObject) {
         log.info("countRecordsByCriteria, searchObject - {}", searchObject);
@@ -86,12 +104,18 @@ public abstract class BaseService<IN, OUT, JPA, ID> implements BaseVehicleServic
                 .orElse(0L);
     }
 
+    @LogInputOutput
+    @LogTimeMeasures
+    @SuppressRuntimeExceptions
     @Override
     public long getNumberOfAllRecords() {
         log.info("getNumberOfAllRecords");
         return repository.count();
     }
 
+    @LogInputOutput
+    @LogTimeMeasures
+    @SuppressRuntimeExceptions
     @Override
     public OUT findRecord(ID id) {
         log.info("findRecord, id - {}", id);

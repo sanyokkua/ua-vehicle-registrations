@@ -16,5 +16,7 @@
 
     <modules>
         <module>commons-dto</module>
+        <module>commons-aspects</module>
+        <module>commons-rest</module>
     </modules>
 </project>
